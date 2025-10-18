@@ -1,31 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Tri Aji, About Me Page</title> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tri Aji - Architect & Frontend Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <section class="main-section">
-      <img
-        src="https://media.licdn.com/dms/image/v2/D5603AQEl_n0PrXFaCw/profile-displayphoto-crop_800_800/B56ZnN5hwxH8AI-/0/1760096037562?e=1762387200&v=beta&t=lDe4czInc8fESi_pbDVV8fZ3GqFnaP6ZOb97-C4-Jm4"
-        width="150"
-      />
-      <h1>Tri Aji</h1>
-      <h2>Architect | Frontend Web Developer</h2>
-      <p>
-        Tri Aji (tree ah-jee) - An architect also a frontend web developer.
-        Crafting experiences, from the spaces you walk through to the interfaces
-        you click on.
-      </p>
-    </section>
+    <main class="container">
+      <!-- Hero Section -->
+      <section class="hero-section animate-on-scroll">
+        <div class="profile-image-container">
+          <img
+            src="https://media.licdn.com/dms/image/v2/D5603AQEl_n0PrXFaCw/profile-displayphoto-crop_800_800/B56ZnN5hwxH8AI-/0/1760096037562?e=1762387200&v=beta&t=lDe4czInc8fESi_pbDVV8fZ3GqFnaP6ZOb97-C4-Jm4"
+            alt="Tri Aji Profile Photo"
+            class="profile-image"
+          />
+        </div>
+        
+        <div class="hero-content">
+          <h1 class="name">Tri Aji</h1>
+          <h2 class="title">Architect & Frontend Web Developer</h2>
+          <p class="description">
+            Tri Aji (tree ah-jee) — An architect who also crafts digital experiences. 
+            Bridging the gap between physical spaces and interactive interfaces, 
+            creating meaningful experiences that connect people with their environment.
+          </p>
+        </div>
+      </section>
 
-    <section class="social-media">
-      <a href="https://www.linkedin.com/in/tri-aji-prabandaru-76200742/" target="_blank"
-        >LinkedIn</a
-      >
-      <a href="https://github.com/triaji-dev" target="_blank">Github</a>
-      <a href="https://medium.com/@notadevright" target="_blank">Medium</a>
-      <a href="https://x.com/notadevright" target="_blank">X</a>
-    </section>
+      <!-- Connect Section -->
+      <section class="connect-section animate-on-scroll">
+        <h3 class="section-heading">Let's Connect</h3>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/tri-aji-prabandaru-76200742/" target="_blank" class="social-link">
+            <span class="link-text">LinkedIn</span>
+          </a>
+          <a href="https://github.com/triaji-dev" target="_blank" class="social-link">
+            <span class="link-text">GitHub</span>
+          </a>
+          <a href="https://medium.com/@notadevright" target="_blank" class="social-link">
+            <span class="link-text">Medium</span>
+          </a>
+          <a href="https://x.com/notadevright" target="_blank" class="social-link">
+            <span class="link-text">X (Twitter)</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Intersection Observer for scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all elements with animate-on-scroll class
+      document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+      });
+    </script>
   </body>
 </html>

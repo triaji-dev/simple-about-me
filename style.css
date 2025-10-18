@@ -1,60 +1,336 @@
+/* =======================
+   CSS RESET & BASE STYLES
+   ======================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: rgb(22, 22, 22);
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  color: white;
-  text-align: center;
-  max-width: 400px;
-  margin: 0 auto;
+  /* Modern dark background with subtle warmth */
+  background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+  
+  /* Typography: Inter font for modern, clean look */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #EAEAEA;
+  line-height: 1.6;
+  
+  /* Remove default margins and ensure full viewport coverage */
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* =======================
+   LAYOUT & CONTAINER
+   ======================= */
+
+.container {
+  /* Single-column responsive layout with generous spacing */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 20px;
+  
+  /* Flexbox for vertical spacing control */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 10px;
 }
 
-.main-section {
-  margin-top: 20px;
-  margin-bottom: 40px;
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 40px 24px;
+    gap: 40px;
+  }
 }
 
-img {
-  border-radius: 25px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: solid 2px rgb(180, 180, 180);
+@media (max-width: 480px) {
+  .container {
+    padding: 40px 20px;
+    gap: 20px;
+  }
 }
 
-h1 {
-  margin-bottom: 20px;
+/* =======================
+   ANIMATION SYSTEM
+   ======================= */
+
+/* Initial state for scroll animations - elements start invisible and shifted */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
+/* Active state when elements come into view */
+.animate-on-scroll.animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-a {
-  background-color: white;
-  font-size: 20px;
-  border-radius: 10px;
-  padding: 10px;
-  display: block;
+/* Staggered animation delays for multiple elements */
+.animate-on-scroll:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.animate-on-scroll:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+/* =======================
+   HERO SECTION
+   ======================= */
+
+.hero-section {
   text-align: center;
-  margin: 10px;
-  color: rgb(22, 22, 22);
-  text-decoration: none;
-  transition: all ease 0.1s;
+  padding: 20px 0 40px 0;
 }
 
-a:hover {
-  background-color: hsl(0, 0%, 10%);
-  color: hsl(0, 0%, 90%);
-  box-shadow: 0 0px 20px rgba(255, 255, 255, 0.2);
-  transition: all ease 0.2s;
+.profile-image-container {
+  margin-bottom: 24px;
+  
+  /* Subtle hover animation for profile image */
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-image-container:hover {
+  transform: scale(1.02);
+}
+
+.profile-image {
+  width: 180px;
+  height: 180px;
+  
+  /* Modern circular crop with subtle border */
+  border-radius: 50%;
+  border: 3px solid rgba(0, 167, 157, 0.3); /* Teal accent with transparency */
+  
+  /* Smooth image rendering */
+  object-fit: cover;
+  
+  /* Elegant shadow for depth */
+  box-shadow: 0 20px 60px rgba(0, 167, 157, 0.1);
+  
+  transition: all 0.3s ease-in-out;
+}
+
+.profile-image:hover {
+  border-color: #00A79D; /* Full teal on hover */
+  box-shadow: 0 25px 80px rgba(0, 167, 157, 0.2);
+}
+
+/* Mobile responsive image sizing */
+@media (max-width: 480px) {
+  .profile-image {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+/* =======================
+   TYPOGRAPHY HIERARCHY
+   ======================= */
+
+.name {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+  
+  /* Subtle text shadow for depth */
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  
+  /* Letter spacing for elegance */
+  letter-spacing: -0.02em;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #00A79D; /* Teal accent color */
+  margin-bottom: 32px;
+  
+  /* Subtle animation on load */
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.description {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #B8B8B8;
+  max-width: 600px;
+  margin: 0 auto;
+  
+  /* Optimal line height for readability */
+  line-height: 1.7;
+}
+
+/* Mobile typography adjustments */
+@media (max-width: 768px) {
+  .name {
+    font-size: 2.8rem;
+  }
+  
+  .title {
+    font-size: 1.3rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .name {
+    font-size: 2.2rem;
+  }
+  
+  .title {
+    font-size: 1.1rem;
+  }
+}
+
+/* =======================
+   SECTION STYLING
+   ======================= */
+
+.section-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 32px;
+  text-align: center;
+  
+  /* Elegant underline effect */
+  position: relative;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #00A79D, #00D4C7);
+  border-radius: 2px;
+}
+
+.about-text {
+  font-size: 1.125rem;
+  color: #B8B8B8;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* =======================
+   SOCIAL LINKS
+   ======================= */
+
+.social-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.social-link {
+  /* Modern card-style button design */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px 32px;
+  
+  /* Typography */
+  color: #EAEAEA;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  /* Smooth transitions for all interactive states */
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  /* Subtle initial transform for hover effect */
+  transform: translateY(0);
+}
+
+.social-link:hover {
+  /* Hover effects: lift, glow, and color change */
+  transform: translateY(-4px);
+  background: rgba(0, 167, 157, 0.1);
+  border-color: rgba(0, 167, 157, 0.3);
+  color: #00A79D;
+  
+  /* Enhanced shadow for lifted appearance */
+  box-shadow: 0 20px 40px rgba(0, 167, 157, 0.15);
+}
+
+.social-link:active {
+  /* Subtle press effect */
+  transform: translateY(-2px);
+}
+
+/* Mobile responsive grid */
+@media (max-width: 600px) {
+  .social-links {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* =======================
+   KEYFRAME ANIMATIONS
+   ======================= */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =======================
+   ACCESSIBILITY & PERFORMANCE
+   ======================= */
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+.social-link:focus-visible {
+  outline: 2px solid #00A79D;
+  outline-offset: 4px;
 }
