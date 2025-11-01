@@ -18,12 +18,36 @@ body {
   
   /* Typography: Inter font for modern, clean look */
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: #EAEAEA;
+  color: #F0F0F0; /* Improved contrast from #EAEAEA */
   line-height: 1.6;
   
   /* Remove default margins and ensure full viewport coverage */
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+/* =======================
+   ACCESSIBILITY - SKIP LINK
+   ======================= */
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #00A79D;
+  color: #FFFFFF;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 9999;
+  border-radius: 0 0 8px 0;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #FFFFFF;
+  outline-offset: 2px;
 }
 
 /* =======================
@@ -162,7 +186,7 @@ body {
 .description {
   font-size: 1.125rem;
   font-weight: 400;
-  color: #B8B8B8;
+  color: #C8C8C8; /* Improved contrast from #B8B8B8 */
   max-width: 600px;
   margin: 0 auto;
   
@@ -224,7 +248,7 @@ body {
 
 .about-text {
   font-size: 1.125rem;
-  color: #B8B8B8;
+  color: #C8C8C8; /* Improved contrast */
   text-align: center;
   max-width: 700px;
   margin: 0 auto;
@@ -235,12 +259,15 @@ body {
    SOCIAL LINKS
    ======================= */
 
+/* Remove list styling for accessibility */
 .social-links {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   max-width: 600px;
   margin: 0 auto;
+  list-style: none; /* Remove default list bullets */
+  padding: 0;
 }
 
 .social-link {
@@ -252,7 +279,7 @@ body {
   padding: 20px 32px;
   
   /* Typography */
-  color: #EAEAEA;
+  color: #F0F0F0; /* Improved contrast */
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
@@ -273,12 +300,12 @@ body {
 .social-link:hover {
   /* Hover effects: lift, glow, and color change */
   transform: translateY(-4px);
-  background: rgba(0, 167, 157, 0.1);
-  border-color: rgba(0, 167, 157, 0.3);
-  color: #00A79D;
+  background: rgba(0, 167, 157, 0.15); /* Increased opacity for better visibility */
+  border-color: rgba(0, 167, 157, 0.5); /* Stronger border */
+  color: #00D4C7; /* Brighter teal for better contrast */
   
   /* Enhanced shadow for lifted appearance */
-  box-shadow: 0 20px 40px rgba(0, 167, 157, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 167, 157, 0.2);
 }
 
 .social-link:active {
@@ -331,6 +358,12 @@ body {
 
 /* Focus styles for keyboard navigation */
 .social-link:focus-visible {
-  outline: 2px solid #00A79D;
+  outline: 3px solid #00D4C7; /* Stronger outline */
   outline-offset: 4px;
+}
+
+/* Additional focus styles for skip link */
+a:focus-visible {
+  outline: 3px solid #00D4C7;
+  outline-offset: 2px;
 }

@@ -3,29 +3,88 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tri Aji - Architect & Frontend Developer</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Tri Aji - Architect & Frontend Developer | Portfolio</title>
+    <meta name="title" content="Tri Aji - Architect & Frontend Developer | Portfolio">
+    <meta name="description" content="Tri Aji is an architect and frontend web developer bridging physical spaces and digital interfaces. Explore my work in architecture and web development.">
+    <meta name="keywords" content="Tri Aji, architect, frontend developer, web developer, UI/UX, architecture, web design">
+    <meta name="author" content="Tri Aji">
+    <meta name="theme-color" content="#00A79D">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://simple-about-me-omega.vercel.app/">
+    <meta property="og:title" content="Tri Aji - Architect & Frontend Developer">
+    <meta property="og:description" content="An architect who also crafts digital experiences. Bridging the gap between physical spaces and interactive interfaces.">
+    <meta property="og:image" content="https://media.licdn.com/dms/image/v2/D5603AQEl_n0PrXFaCw/profile-displayphoto-crop_800_800/B56ZnN5hwxH8AI-/0/1760096037562?e=1762387200&v=beta&t=lDe4czInc8fESi_pbDVV8fZ3GqFnaP6ZOb97-C4-Jm4">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://simple-about-me-omega.vercel.app/">
+    <meta property="twitter:title" content="Tri Aji - Architect & Frontend Developer">
+    <meta property="twitter:description" content="An architect who also crafts digital experiences. Bridging the gap between physical spaces and interactive interfaces.">
+    <meta property="twitter:image" content="https://media.licdn.com/dms/image/v2/D5603AQEl_n0PrXFaCw/profile-displayphoto-crop_800_800/B56ZnN5hwxH8AI-/0/1760096037562?e=1762387200&v=beta&t=lDe4czInc8fESi_pbDVV8fZ3GqFnaP6ZOb97-C4-Jm4">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/favicon.ico">
+    
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://media.licdn.com">
+    
+    <!-- Font - optimized with display=swap for performance -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://simple-about-me-omega.vercel.app/">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Tri Aji",
+      "jobTitle": "Architect & Frontend Web Developer",
+      "url": "https://simple-about-me-omega.vercel.app/",
+      "sameAs": [
+        "https://www.linkedin.com/in/tri-aji-prabandaru-76200742/",
+        "https://github.com/triaji-dev",
+        "https://medium.com/@notadevright",
+        "https://x.com/notadevright"
+      ],
+      "description": "An architect who also crafts digital experiences, bridging the gap between physical spaces and interactive interfaces."
+    }
+    </script>
   </head>
   <body>
-    <main class="container">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <main id="main-content" class="container">
       <!-- Hero Section -->
-      <section class="hero-section animate-on-scroll">
+      <section class="hero-section animate-on-scroll" aria-labelledby="hero-heading">
         <div class="profile-image-container">
           <img
             src="https://media.licdn.com/dms/image/v2/D5603AQEl_n0PrXFaCw/profile-displayphoto-crop_800_800/B56ZnN5hwxH8AI-/0/1760096037562?e=1762387200&v=beta&t=lDe4czInc8fESi_pbDVV8fZ3GqFnaP6ZOb97-C4-Jm4"
-            alt="Tri Aji Profile Photo"
+            alt="Professional headshot of Tri Aji"
             class="profile-image"
+            width="180"
+            height="180"
+            loading="eager"
           />
         </div>
         
         <div class="hero-content">
-          <h1 class="name">Tri Aji</h1>
-          <h2 class="title">Architect & Frontend Web Developer</h2>
+          <h1 id="hero-heading" class="name">Tri Aji</h1>
+          <p class="title" role="doc-subtitle">Architect & Frontend Web Developer</p>
           <p class="description">
             Tri Aji (tree ah-jee) — An architect who also crafts digital experiences. 
             Bridging the gap between physical spaces and interactive interfaces, 
@@ -35,44 +94,88 @@
       </section>
 
       <!-- Connect Section -->
-      <section class="connect-section animate-on-scroll">
-        <h3 class="section-heading">Let's Connect</h3>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/tri-aji-prabandaru-76200742/" target="_blank" class="social-link">
-            <span class="link-text">LinkedIn</span>
-          </a>
-          <a href="https://github.com/triaji-dev" target="_blank" class="social-link">
-            <span class="link-text">GitHub</span>
-          </a>
-          <a href="https://medium.com/@notadevright" target="_blank" class="social-link">
-            <span class="link-text">Medium</span>
-          </a>
-          <a href="https://x.com/notadevright" target="_blank" class="social-link">
-            <span class="link-text">X (Twitter)</span>
-          </a>
-        </div>
+      <section class="connect-section animate-on-scroll" aria-labelledby="connect-heading">
+        <h2 id="connect-heading" class="section-heading">Let's Connect</h2>
+        <nav aria-label="Social media links">
+          <ul class="social-links" role="list">
+            <li>
+              <a 
+                href="https://www.linkedin.com/in/tri-aji-prabandaru-76200742/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="social-link"
+                aria-label="Visit Tri Aji's LinkedIn profile (opens in new tab)"
+              >
+                <span class="link-text">LinkedIn</span>
+              </a>
+            </li>
+            <li>
+              <a 
+                href="https://github.com/triaji-dev" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="social-link"
+                aria-label="Visit Tri Aji's GitHub profile (opens in new tab)"
+              >
+                <span class="link-text">GitHub</span>
+              </a>
+            </li>
+            <li>
+              <a 
+                href="https://medium.com/@notadevright" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="social-link"
+                aria-label="Visit Tri Aji's Medium blog (opens in new tab)"
+              >
+                <span class="link-text">Medium</span>
+              </a>
+            </li>
+            <li>
+              <a 
+                href="https://x.com/notadevright" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="social-link"
+                aria-label="Visit Tri Aji's X (Twitter) profile (opens in new tab)"
+              >
+                <span class="link-text">X (Twitter)</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </section>
     </main>
 
+    <!-- Inline critical JavaScript for performance -->
     <script>
       // Intersection Observer for scroll animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
+      if ('IntersectionObserver' in window) {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-          }
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-in');
+              // Unobserve after animation to improve performance
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+          observer.observe(el);
         });
-      }, observerOptions);
-
-      // Observe all elements with animate-on-scroll class
-      document.querySelectorAll('.animate-on-scroll').forEach(el => {
-        observer.observe(el);
-      });
+      } else {
+        // Fallback for browsers without IntersectionObserver support
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+          el.classList.add('animate-in');
+        });
+      }
     </script>
   </body>
 </html>
