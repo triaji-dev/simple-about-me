@@ -27,30 +27,6 @@ body {
 }
 
 /* =======================
-   ACCESSIBILITY - SKIP LINK
-   ======================= */
-
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: #00A79D;
-  color: #FFFFFF;
-  padding: 12px 20px;
-  text-decoration: none;
-  font-weight: 600;
-  z-index: 9999;
-  border-radius: 0 0 8px 0;
-  transition: top 0.3s;
-}
-
-.skip-link:focus {
-  top: 0;
-  outline: 3px solid #FFFFFF;
-  outline-offset: 2px;
-}
-
-/* =======================
    LAYOUT & CONTAINER
    ======================= */
 
@@ -288,6 +264,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 12px;
   text-align: center;
   
   /* Smooth transitions for all interactive states */
@@ -295,6 +272,14 @@ body {
   
   /* Subtle initial transform for hover effect */
   transform: translateY(0);
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  color: #00A79D;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
 }
 
 .social-link:hover {
@@ -306,6 +291,11 @@ body {
   
   /* Enhanced shadow for lifted appearance */
   box-shadow: 0 20px 40px rgba(0, 167, 157, 0.2);
+}
+
+.social-link:hover .social-icon {
+  color: #00D4C7;
+  transform: scale(1.1);
 }
 
 .social-link:active {
@@ -366,4 +356,111 @@ body {
 a:focus-visible {
   outline: 3px solid #00D4C7;
   outline-offset: 2px;
+}
+
+.download-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* =======================
+   FOOTER
+   ======================= */
+
+.footer {
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 40px 40px 32px;
+  margin-top: 80px;
+}
+
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: #F0F0F0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  background: rgba(0, 167, 157, 0.08);
+  border-color: rgba(0, 167, 157, 0.2);
+  transform: translateY(-2px);
+}
+
+.contact-icon {
+  width: 18px;
+  height: 18px;
+  color: #00A79D;
+  flex-shrink: 0;
+}
+
+.contact-text {
+  font-size: 0.875rem;
+  color: #C8C8C8;
+  line-height: 1.4;
+}
+
+.contact-item:hover .contact-text {
+  color: #F0F0F0;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: #666666;
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Mobile responsive footer */
+@media (max-width: 768px) {
+  .footer {
+    padding: 32px 24px 24px;
+    margin-top: 60px;
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 24px 20px 20px;
+    margin-top: 40px;
+  }
+  
+  .contact-item {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+  
+  .contact-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .contact-text {
+    font-size: 0.8rem;
+  }
 }
