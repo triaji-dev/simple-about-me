@@ -403,7 +403,8 @@ body {
   /* Smooth transitions for interactive state */
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   text-decoration: none; /* Remove link underline */
-  display: block; /* Make it a block link */
+  display: flex; 
+  flex-direction: column; 
 }
 
 .portfolio-card:hover {
@@ -433,12 +434,61 @@ body {
 
 .portfolio-caption {
   padding: 16px; /* Increased padding */
-  font-size: 1rem;
+  font-size: 0.9rem; 
   font-weight: 600;
   color: #F0F0F0;
   text-align: left;
+  line-height: 1.4; 
+  
+  flex-grow: 1; 
+  display: flex; 
+  align-items: center; 
+  min-height: 4.2em; 
 }
 
+
+/* --- SKELETON LOADING STYLES --- */
+
+/* Base style for skeleton element */
+.skeleton-loading {
+    /* Use solid color close to background but slightly lighter for contrast */
+    background-color: #282828; 
+    border-color: rgba(255, 255, 255, 0.05) !important;
+    overflow: hidden;
+    position: relative;
+    /* Apply animation */
+    animation: pulse-bg 1.5s infinite;
+}
+
+/* Specific styles for skeleton parts */
+.skeleton-loading .portfolio-image-container {
+    background-color: #333; /* Darker placeholder for image area */
+}
+
+/* Text placeholder lines inside the caption */
+.skeleton-loading .portfolio-caption > div {
+    height: 16px;
+    background-color: #333; /* Color of the loading lines */
+    border-radius: 4px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.skeleton-loading .portfolio-caption .line-short {
+    width: 60%; /* Simulate a shorter line for a title */
+}
+
+/* Override card properties for skeleton to remove interactive effects */
+.skeleton-loading {
+    cursor: default;
+    transform: none !important;
+    pointer-events: none;
+    text-decoration: none;
+}
+.skeleton-loading:hover {
+    background: #282828;
+    box-shadow: none;
+}
 
 /* =======================
    KEYFRAME ANIMATIONS
@@ -452,6 +502,19 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Keyframe for background pulsing (skeleton effect) */
+@keyframes pulse-bg {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.8;
   }
 }
 
@@ -472,6 +535,11 @@ body {
   .animate-on-scroll {
     opacity: 1;
     transform: none;
+  }
+  
+  /* Disable skeleton animation for reduced motion */
+  .skeleton-loading {
+      animation: none !important;
   }
 }
 
