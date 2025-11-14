@@ -5,26 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
-    <title>Tri Aji - Architect & Frontend Developer | Portfolio</title>
-    <meta name="title" content="Tri Aji - Architect & Frontend Developer | Portfolio">
-    <meta name="description" content="Tri Aji is an architect and frontend web developer bridging physical spaces and digital interfaces. Explore my work in architecture and web development.">
+    <title>Tri Aji - Architect & Web Developer</title>
+    <meta name="title" content="Tri Aji - Architect & Web Developer">
+    <meta name="description" content="Tri Aji is an architect and web developer bridging physical spaces and digital interfaces. Explore my work in architecture and web development.">
     <meta name="keywords" content="Tri Aji, architect, frontend developer, web developer, UI/UX, architecture, web design">
     <meta name="author" content="Tri Aji">
     <meta name="theme-color" content="#00A79D">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://simple-about-me-omega.vercel.app/">
-    <meta property="og:title" content="Tri Aji - Architect & Frontend Developer">
-    <meta property="og:description" content="An architect who also crafts digital experiences. Bridging the gap between physical spaces and interactive interfaces.">
-    <meta property="og:image" content="https://media.licdn.com/dms/image/v2/D5603AQEl_n0PrXFaCw/profile-displayphoto-crop_800_800/B56ZnN5hwxH8AI-/0/1760096037562?e=1762387200&v=beta&t=lDe4czInc8fESi_pbDVV8fZ3GqFnaP6ZOb97-C4-Jm4">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://simple-about-me-omega.vercel.app/">
-    <meta property="twitter:title" content="Tri Aji - Architect & Frontend Developer">
-    <meta property="twitter:description" content="An architect who also crafts digital experiences. Bridging the gap between physical spaces and interactive interfaces.">
-    <meta property="twitter:image" content="https://media.licdn.com/dms/image/v2/D5603AQEl_n0PrXFaCw/profile-displayphoto-crop_800_800/B56ZnN5hwxH8AI-/0/1760096037562?e=1762387200&v=beta&t=lDe4czInc8fESi_pbDVV8fZ3GqFnaP6ZOb97-C4-Jm4">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -36,16 +22,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://media.licdn.com">
     
-    <!-- Font - optimized with display=swap for performance -->
+    <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Preload critical CSS -->
+    <!-- CSS -->
     <link rel="preload" href="style.css" as="style">
-    <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="style.css"> 
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://simple-about-me-omega.vercel.app/">
     
@@ -73,7 +59,7 @@
       <section class="hero-section animate-on-scroll" aria-labelledby="hero-heading">
         <div class="profile-image-container">
           <img
-            src="/Profile-TriAji-Black.png"
+            src="/assets/profile/Profile-TriAji-Black.png"
             alt="Professional headshot of Tri Aji"
             class="profile-image"
             width="180"
@@ -152,12 +138,12 @@
 
       <!-- Download Section -->
       <section class="download-section animate-on-scroll" aria-labelledby="download-heading">
-        <h2 id="download-heading" class="section-heading">Download</h2>
+        <h2 id="download-heading" class="section-heading">CV & Portfolio</h2>
         <nav aria-label="Download links">
           <ul class="social-links" role="list">
             <li>
               <a 
-                href="tri_aji_prabandaru_cv.pdf" 
+                href="/assets/pdf/tri_aji_prabandaru_cv.pdf" 
                 download
                 class="social-link"
                 aria-label="Architectural CV PDF"
@@ -168,7 +154,7 @@
             </li>
             <li>
               <a 
-                href="tri_aji_prabandaru_portfolio.pdf" 
+                href="/assets/pdf/tri_aji_prabandaru_portfolio.pdf" 
                 download
                 class="social-link"
                 aria-label="Architectural Portfolio PDF"
@@ -177,9 +163,20 @@
                 <span class="link-text">Architectural Portfolio</span>
               </a>
             </li>
+            <li>
+              <a 
+                href="portfolio.html" 
+                class="social-link"
+                aria-label="Web Development Portfolio" target="_blank"
+              >
+                <i data-lucide="code" class="social-icon"></i>
+                <span class="link-text">Web Dev Portfolio</span>
+              </a>
+            </li>
           </ul>
         </nav>
       </section>
+
     </main>
 
     <!-- Footer -->
@@ -207,38 +204,37 @@
       </div>
     </footer>
 
-    <!-- Inline critical JavaScript for performance -->
+    <!-- Initialize Lucide icons on load -->
     <script>
-      // Intersection Observer for scroll animations
-      if ('IntersectionObserver' in window) {
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: '0px 0px -50px 0px'
-        };
+      document.addEventListener('DOMContentLoaded', () => {
+        lucide.createIcons();
+        
+        // --- Scroll Animation Fallback Logic ---
+        // Since the main portfolio grid logic is removed, we only need the IntersectionObserver setup.
+        if ('IntersectionObserver' in window) {
+          const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+          };
 
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('animate-in');
-              // Unobserve after animation to improve performance
-              observer.unobserve(entry.target);
-            }
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, observerOptions);
+
+          document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
           });
-        }, observerOptions);
-
-        // Observe all elements with animate-on-scroll class
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-          observer.observe(el);
-        });
-      } else {
-        // Fallback for browsers without IntersectionObserver support
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-          el.classList.add('animate-in');
-        });
-      }
-      
-      // Initialize Lucide icons
-      lucide.createIcons();
+        } else {
+          document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            el.classList.add('animate-in');
+          });
+        }
+      });
     </script>
   </body>
 </html>
