@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "title": "Blog Website",
+    "description": "A responsive blog website built with modern web technologies.",
+    "imageUrl": "/assets/images/Blog.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 2,
+    "title": "Bootcamp Website",
+    "description": "A responsive bootcamp website built with modern web technologies.",
+    "imageUrl": "/assets/images/Bootcamp.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 3,
+    "title": "Company Profile Website 1",
+    "description": "A responsive company profile website built for a local business.",
+    "imageUrl": "/assets/images/CompanyProfile1.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 4,
+    "title": "Company Profile Website 2",
+    "description": "A responsive company profile website built for a local business.",
+    "imageUrl": "/assets/images/CompanyProfile2.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 5,
+    "title": "E-commerce Website",
+    "description": "A responsive e-commerce website built with modern web technologies.",
+    "imageUrl": "/assets/images/Ecommerce.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 6,
+    "title": "Library Website",
+    "description": "A responsive library website built with modern web technologies.",
+    "imageUrl": "/assets/images/Library.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 7,
+    "title": "Movie Website",
+    "description": "A responsive movie website built with modern web technologies.",
+    "imageUrl": "/assets/images/Movie.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 8,
+    "title": "Music Website",
+    "description": "A responsive music website built with modern web technologies.",
+    "imageUrl": "/assets/images/Music.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 9,
+    "title": "Pokedex Website",
+    "description": "A responsive pokedex website built with modern web technologies.",
+    "imageUrl": "/assets/images/Pokedex.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 10,
+    "title": "Portfolio Website 1",
+    "description": "A responsive portfolio website built with modern web technologies.",
+    "imageUrl": "/assets/images/Portfolio1.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 11,
+    "title": "Portfolio Website 2",
+    "description": "A responsive portfolio website built with modern web technologies.",
+    "imageUrl": "/assets/images/Portfolio2.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 12,
+    "title": "Portfolio Website 3",
+    "description": "A responsive portfolio website built with modern web technologies.",
+    "imageUrl": "/assets/images/Portfolio3.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 13,
+    "title": "Portfolio Website 4",
+    "description": "A responsive portfolio website built with modern web technologies.",
+    "imageUrl": "/assets/images/Portfolio4.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 14,
+    "title": "Portfolio Website 5",
+    "description": "A responsive portfolio website built with modern web technologies.",
+    "imageUrl": "/assets/images/Portfolio5.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 15,
+    "title": "Portfolio Website 6",
+    "description": "A responsive portfolio website built with modern web technologies.",
+    "imageUrl": "/assets/images/Portfolio6.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 16,
+    "title": "Portfolio Website 7",
+    "description": "A responsive portfolio website built with modern web technologies.",
+    "imageUrl": "/assets/images/Portfolio7.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 17,
+    "title": "Portfolio Website 8",
+    "description": "A responsive portfolio website built with modern web technologies.",
+    "imageUrl": "/assets/images/Portfolio8.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 18,
+    "title": "Restaurant Website",
+    "description": "A responsive restaurant website built with modern web technologies.",
+    "imageUrl": "/assets/images/Restaurant.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 19,
+    "title": "Social Media Website",
+    "description": "A responsive social media website built with modern web technologies.",
+    "imageUrl": "/assets/images/SocialMedia.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 20,
+    "title": "To-Do List Website",
+    "description": "A responsive to-do list website built with modern web technologies.",
+    "imageUrl": "/assets/images/ToDoList.png",
+    "vercelUrl": "#",
+    "gitHubUrl": "#",
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+  }
+]
