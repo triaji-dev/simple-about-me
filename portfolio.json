@@ -55,12 +55,14 @@
   },
   {
     "id": 7,
-    "title": "Movie Website",
+    "title": "Movie App",
     "description": "A responsive movie website built with modern web technologies.",
     "imageUrl": "/assets/images/Movie.png",
     "vercelUrl": "https://movie-app-for-you.vercel.app/",
     "gitHubUrl": "https://github.com/ndr-code/movie-app.git",
-    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"],
+    "youtubeUrl": "https://www.youtube.com/watch?v=d3FumKmQLYk",
+    "iframeUrl": "<iframe width=\"1236\" height=\"695\" src=\"https://www.youtube.com/embed/d3FumKmQLYk?autoplay=1&controls=0&modestbranding=1\" title=\"Web Preview - Movie App For You\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
   },
   {
     "id": 8,

@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       
       // Build icon links HTML - only show if links exist
       let iconLinksHtml = '';
-      const hasLinks = item.vercelUrl || item.gitHubUrl;
+      const hasLinks = item.vercelUrl || item.gitHubUrl || item.youtubeUrl;
       
       if (hasLinks) {
         iconLinksHtml = '<div class="portfolio-links">';
@@ -91,6 +91,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             <a href="${item.gitHubUrl}" class="portfolio-link-icon" target="_blank" rel="noopener noreferrer" title="View on GitHub" onclick="event.stopPropagation()">
               <i data-lucide="github" class="icon-sm"></i>
             </a>
+          `;
+        }
+
+        if (item.youtubeUrl) {
+          iconLinksHtml += `
+            <button class="portfolio-link-icon" title="Watch on YouTube" onclick="openVideoModal('${item.youtubeUrl}', '${item.title.replace(/'/g, "\\'")}')"; event.stopPropagation()">
+              <i data-lucide="youtube" class="icon-sm"></i>
+            </button>
           `;
         }
         
@@ -124,4 +132,84 @@ document.addEventListener('DOMContentLoaded', async () => {
   
   // 1. Initial Render: Render SEMUA item
   renderItems(portfolioData); 
+});
+
+// Modal Video Functions
+function openVideoModal(youtubeUrl, title) {
+  // Extract video ID from YouTube URL
+  let videoId = '';
+  
+  // Handle different YouTube URL formats
+  if (youtubeUrl.includes('youtu.be/')) {
+    videoId = youtubeUrl.split('youtu.be/')[1].split('?')[0];
+  } else if (youtubeUrl.includes('youtube.com/watch')) {
+    videoId = youtubeUrl.split('v=')[1].split('&')[0];
+  } else if (youtubeUrl.includes('youtube.com/embed/')) {
+    videoId = youtubeUrl.split('embed/')[1].split('?')[0];
+  }
+  
+  if (!videoId) {
+    console.error('Invalid YouTube URL');
+    return;
+  }
+  
+  // Create modal if it doesn't exist
+  let modal = document.getElementById('video-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'video-modal';
+    modal.className = 'video-modal';
+    modal.innerHTML = `
+      <div class="video-modal-overlay" onclick="closeVideoModal()"></div>
+      <div class="video-modal-content">
+        <button class="video-modal-close" onclick="closeVideoModal()" aria-label="Close video">
+          <i data-lucide="x" class="icon-close"></i>
+        </button>
+        <div class="video-modal-title"></div>
+        <div class="video-container"></div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+    lucide.createIcons();
+  }
+  
+  // Set title and iframe
+  const modalTitle = modal.querySelector('.video-modal-title');
+  const videoContainer = modal.querySelector('.video-container');
+  
+  modalTitle.textContent = title;
+  videoContainer.innerHTML = `
+    <iframe 
+      width="100%" 
+      height="100%" 
+      src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
+      title="${title}" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      referrerpolicy="strict-origin-when-cross-origin" 
+      allowfullscreen>
+    </iframe>
+  `;
+  
+  // Show modal
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVideoModal() {
+  const modal = document.getElementById('video-modal');
+  if (modal) {
+    modal.classList.remove('active');
+    // Clear iframe to stop video
+    const videoContainer = modal.querySelector('.video-container');
+    videoContainer.innerHTML = '';
+  }
+  document.body.style.overflow = '';
+}
+
+// Close modal on ESC key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeVideoModal();
+  }
 });
