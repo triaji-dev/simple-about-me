@@ -69,9 +69,37 @@ document.addEventListener('DOMContentLoaded', async () => {
       const itemElement = document.createElement('div');
       itemElement.className = 'grid-item'; 
       
-      // Card structure
+      // Build icon links HTML - only show if links exist
+      let iconLinksHtml = '';
+      const hasLinks = item.vercelUrl || item.gitHubUrl;
+      
+      if (hasLinks) {
+        iconLinksHtml = '<div class="portfolio-links">';
+        
+        // Only add Vercel icon if vercelUrl exists
+        if (item.vercelUrl) {
+          iconLinksHtml += `
+            <a href="${item.vercelUrl}" class="portfolio-link-icon" target="_blank" rel="noopener noreferrer" title="View on Vercel" onclick="event.stopPropagation()">
+              <i data-lucide="external-link" class="icon-sm"></i>
+            </a>
+          `;
+        }
+        
+        // Only add GitHub icon if gitHubUrl exists
+        if (item.gitHubUrl) {
+          iconLinksHtml += `
+            <a href="${item.gitHubUrl}" class="portfolio-link-icon" target="_blank" rel="noopener noreferrer" title="View on GitHub" onclick="event.stopPropagation()">
+              <i data-lucide="github" class="icon-sm"></i>
+            </a>
+          `;
+        }
+        
+        iconLinksHtml += '</div>';
+      }
+      
+      // Card structure without link on thumbnail
       itemElement.innerHTML = `
-        <a href="${item.vercelUrl || '#'}" class="portfolio-card" target="_blank" rel="noopener noreferrer" title="${item.title}">
+        <div class="portfolio-card">
           <div class="portfolio-image-container">
             <img 
               src="${item.imageUrl}" 
@@ -80,14 +108,18 @@ document.addEventListener('DOMContentLoaded', async () => {
               loading="lazy"
               onerror="this.onerror=null; this.src='https://placehold.co/400x225/333333/ffffff?text=${encodeURIComponent(item.title.replace(/\s/g, '+'))}'"
             />
+            ${iconLinksHtml}
           </div>
           <div class="portfolio-caption">
             ${item.title}
           </div>
-        </a>
+        </div>
       `;
       gridContainer.appendChild(itemElement);
     });
+    
+    // Re-initialize Lucide icons for dynamically added content
+    lucide.createIcons();
   }
   
   // 1. Initial Render: Render SEMUA item

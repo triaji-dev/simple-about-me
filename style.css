@@ -402,22 +402,73 @@ body {
   
   /* Smooth transitions for interactive state */
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  text-decoration: none; /* Remove link underline */
   display: flex; 
   flex-direction: column; 
+  cursor: default; /* Changed from pointer since it's no longer a link */
 }
 
 .portfolio-card:hover {
-  transform: translateY(-6px); /* Increased lift on hover */
-  background: rgba(0, 167, 157, 0.15); 
-  border-color: rgba(0, 167, 157, 0.5); 
-  box-shadow: 0 25px 50px rgba(0, 167, 157, 0.25); /* Stronger glow/shadow */
+  transform: translateY(-4px); /* Subtle lift on hover */
+  border-color: rgba(0, 167, 157, 0.3); 
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); /* Subtle shadow */
+  background: linear-gradient(135deg, rgba(22, 249, 230, 0.3), rgba(0, 78, 73, 0.1));
 }
 
 .portfolio-image-container {
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  position: relative; /* For absolute positioning of links */
+}
+
+/* Portfolio Links Container */
+.portfolio-links {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.portfolio-links:hover {
+  /* Slightly increase visibility of links on hover */
+  transform: scale(1.1);
+}
+
+/* Portfolio Link Icons */
+.portfolio-link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px; /* 75% of 36px */
+  height: 27px; /* 75% of 36px */
+  background: rgba(0, 83, 78, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px; /* Proportionally smaller */
+  color: #F0F0F0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.portfolio-link-icon:hover {
+  background: rgba(0, 189, 176, 0.9);
+  border-color: #00D4C7;
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+  transform: scale(1.1);
+}
+
+.portfolio-link-icon svg {
+  width: 14px; /* 75% of 18px */
+  height: 14px; /* 75% of 18px */
+}
+
+.portfolio-link-icon .icon-sm {
+  width: 14px; /* 75% of 18px */
+  height: 14px; /* 75% of 18px */
 }
 
 .portfolio-image {
@@ -429,7 +480,7 @@ body {
 }
 
 .portfolio-card:hover .portfolio-image {
-  transform: scale(1.08); /* Stronger zoom effect */
+  transform: scale(1.05); /* Subtle zoom effect */
 }
 
 .portfolio-caption {
@@ -544,7 +595,7 @@ body {
 }
 
 /* Focus styles for keyboard navigation */
-.social-link:focus-visible, .portfolio-card:focus-visible, .carousel-nav:focus-visible {
+.social-link:focus-visible, .portfolio-card:focus-visible {
   outline: 3px solid #00D4C7; /* Stronger outline */
   outline-offset: 4px;
 }

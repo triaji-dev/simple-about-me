@@ -4,8 +4,8 @@
     "title": "Blog Website",
     "description": "A responsive blog website built with modern web technologies.",
     "imageUrl": "/assets/images/Blog.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "",
+    "gitHubUrl": "",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   },
   {
@@ -13,26 +13,26 @@
     "title": "Bootcamp Website",
     "description": "A responsive bootcamp website built with modern web technologies.",
     "imageUrl": "/assets/images/Bootcamp.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "",
+    "gitHubUrl": "",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   },
   {
     "id": 3,
-    "title": "Company Profile Website 1",
+    "title": "Company Profile",
     "description": "A responsive company profile website built for a local business.",
     "imageUrl": "/assets/images/CompanyProfile1.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "",
+    "gitHubUrl": "",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   },
   {
     "id": 4,
-    "title": "Company Profile Website 2",
+    "title": "Company Profile",
     "description": "A responsive company profile website built for a local business.",
     "imageUrl": "/assets/images/CompanyProfile2.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "",
+    "gitHubUrl": "",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   },
   {
@@ -40,8 +40,8 @@
     "title": "E-commerce Website",
     "description": "A responsive e-commerce website built with modern web technologies.",
     "imageUrl": "/assets/images/Ecommerce.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "",
+    "gitHubUrl": "",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   },
   {
@@ -49,8 +49,8 @@
     "title": "Library Website",
     "description": "A responsive library website built with modern web technologies.",
     "imageUrl": "/assets/images/Library.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "",
+    "gitHubUrl": "",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   },
   {
@@ -58,17 +58,17 @@
     "title": "Movie Website",
     "description": "A responsive movie website built with modern web technologies.",
     "imageUrl": "/assets/images/Movie.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "https://movie-app-for-you.vercel.app/",
+    "gitHubUrl": "https://github.com/ndr-code/movie-app.git",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   },
   {
     "id": 8,
-    "title": "Music Website",
+    "title": "Music App",
     "description": "A responsive music website built with modern web technologies.",
     "imageUrl": "/assets/images/Music.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "https://music-app-for-you.vercel.app/",
+    "gitHubUrl": "https://github.com/ndr-code/music-app.git",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   },
   {
@@ -76,80 +76,80 @@
     "title": "Pokedex Website",
     "description": "A responsive pokedex website built with modern web technologies.",
     "imageUrl": "/assets/images/Pokedex.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "",
+    "gitHubUrl": "",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   },
   {
     "id": 10,
-    "title": "Portfolio Website 1",
+    "title": "Portfolio Website",
     "description": "A responsive portfolio website built with modern web technologies.",
     "imageUrl": "/assets/images/Portfolio1.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "",
+    "gitHubUrl": "",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   },
   {
     "id": 11,
-    "title": "Portfolio Website 2",
+    "title": "Portfolio Website",
     "description": "A responsive portfolio website built with modern web technologies.",
     "imageUrl": "/assets/images/Portfolio2.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "",
+    "gitHubUrl": "",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   },
   {
     "id": 12,
-    "title": "Portfolio Website 3",
+    "title": "Portfolio Website",
     "description": "A responsive portfolio website built with modern web technologies.",
     "imageUrl": "/assets/images/Portfolio3.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "",
+    "gitHubUrl": "",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   },
   {
     "id": 13,
-    "title": "Portfolio Website 4",
+    "title": "Portfolio Website",
     "description": "A responsive portfolio website built with modern web technologies.",
     "imageUrl": "/assets/images/Portfolio4.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "",
+    "gitHubUrl": "",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   },
   {
     "id": 14,
-    "title": "Portfolio Website 5",
+    "title": "Portfolio Website",
     "description": "A responsive portfolio website built with modern web technologies.",
     "imageUrl": "/assets/images/Portfolio5.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "",
+    "gitHubUrl": "",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   },
   {
     "id": 15,
-    "title": "Portfolio Website 6",
+    "title": "Portfolio Website",
     "description": "A responsive portfolio website built with modern web technologies.",
     "imageUrl": "/assets/images/Portfolio6.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "",
+    "gitHubUrl": "",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   },
   {
     "id": 16,
-    "title": "Portfolio Website 7",
+    "title": "Portfolio Website",
     "description": "A responsive portfolio website built with modern web technologies.",
     "imageUrl": "/assets/images/Portfolio7.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "",
+    "gitHubUrl": "",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   },
   {
     "id": 17,
-    "title": "Portfolio Website 8",
+    "title": "Portfolio Website",
     "description": "A responsive portfolio website built with modern web technologies.",
     "imageUrl": "/assets/images/Portfolio8.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "",
+    "gitHubUrl": "",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   },
   {
@@ -157,8 +157,8 @@
     "title": "Restaurant Website",
     "description": "A responsive restaurant website built with modern web technologies.",
     "imageUrl": "/assets/images/Restaurant.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "https://restaurant-app-for-you.vercel.app/",
+    "gitHubUrl": "https://github.com/ndr-code/restaurant-app.git",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   },
   {
@@ -166,8 +166,8 @@
     "title": "Social Media Website",
     "description": "A responsive social media website built with modern web technologies.",
     "imageUrl": "/assets/images/SocialMedia.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "",
+    "gitHubUrl": "",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   },
   {
@@ -175,8 +175,8 @@
     "title": "To-Do List Website",
     "description": "A responsive to-do list website built with modern web technologies.",
     "imageUrl": "/assets/images/ToDoList.png",
-    "vercelUrl": "#",
-    "gitHubUrl": "#",
+    "vercelUrl": "https://to-do-list-for-you.vercel.app/",
+    "gitHubUrl": "https://github.com/ndr-code/todolist-app.git",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
   }
 ]
