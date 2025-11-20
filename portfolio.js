@@ -44,25 +44,27 @@ lucide.createIcons();
 // --- Grid Rendering Logic for Portfolio Page ---
 document.addEventListener('DOMContentLoaded', async () => {
   const gridContainer = document.getElementById('full-portfolio-grid');
+  const selectedGridContainer = document.getElementById('selected-portfolio-grid');
   
   // Memuat semua data
   const portfolioData = await loadPortfolioData();
 
   /**
-   * Renders ALL portfolio items into the grid container.
-   * @param {Array} data - Array of ALL portfolio objects.
+   * Renders portfolio items into a specific grid container.
+   * @param {Array} data - Array of portfolio objects to render.
+   * @param {HTMLElement} container - The container element to render into.
    */
-  function renderItems(data) {
-    gridContainer.innerHTML = ''; // Clear existing content
+  function renderItems(data, container) {
+    container.innerHTML = ''; // Clear existing content
     
     if (data.length === 0) {
-      gridContainer.innerHTML = '<p class="description text-center">Data portofolio belum tersedia.</p>';
+      container.innerHTML = '<p class="description text-center">Data portofolio belum tersedia.</p>';
       return;
     }
 
     // Pastikan kelas grid yang sesuai sudah ada
-    if (!gridContainer.classList.contains('portfolio-grid')) {
-      gridContainer.classList.add('portfolio-grid');
+    if (!container.classList.contains('portfolio-grid')) {
+      container.classList.add('portfolio-grid');
     }
     
     data.forEach(item => {
@@ -96,7 +98,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (item.youtubeUrl) {
           iconLinksHtml += `
-            <button class="portfolio-link-icon" title="Watch on YouTube" onclick="openVideoModal('${item.youtubeUrl}', '${item.title.replace(/'/g, "\\'")}')"; event.stopPropagation()">
+            <button class="portfolio-link-icon" title="Watch on YouTube" onclick="event.stopPropagation(); openVideoModal('${item.youtubeUrl}', '${item.title.replace(/'/g, "\\'")}');">
               <i data-lucide="youtube" class="icon-sm"></i>
             </button>
           `;
@@ -123,15 +125,23 @@ document.addEventListener('DOMContentLoaded', async () => {
           </div>
         </div>
       `;
-      gridContainer.appendChild(itemElement);
+      container.appendChild(itemElement);
     });
     
     // Re-initialize Lucide icons for dynamically added content
     lucide.createIcons();
   }
   
-  // 1. Initial Render: Render SEMUA item
-  renderItems(portfolioData); 
+  // 1. Render Selected Projects
+  if (selectedGridContainer) {
+    const selectedProjects = portfolioData.filter(item => item.selected === true);
+    renderItems(selectedProjects, selectedGridContainer);
+  }
+
+  // 2. Render All Projects
+  if (gridContainer) {
+    renderItems(portfolioData, gridContainer); 
+  }
 });
 
 // Modal Video Functions
