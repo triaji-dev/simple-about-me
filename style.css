@@ -15,12 +15,13 @@ html {
 body {
   /* Modern dark background with subtle warmth */
   background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
-  
+
   /* Typography: Inter font for modern, clean look */
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: #F0F0F0; /* Improved contrast from #EAEAEA */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+  color: #f0f0f0; /* Improved contrast from #EAEAEA */
   line-height: 1.6;
-  
+
   /* Remove default margins and ensure full viewport coverage */
   min-height: 100vh;
   overflow-x: hidden;
@@ -32,10 +33,10 @@ body {
 
 .container {
   /* Single-column responsive layout with generous spacing */
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 60px auto 20px auto;
   padding: 20px 20px;
-  
+
   /* Flexbox for vertical spacing control */
   display: flex;
   flex-direction: column;
@@ -93,7 +94,7 @@ body {
 
 .profile-image-container {
   margin-bottom: 24px;
-  
+
   /* Subtle hover animation for profile image */
   transition: transform 0.3s ease-in-out;
 }
@@ -105,22 +106,22 @@ body {
 .profile-image {
   width: 180px;
   height: 180px;
-  
+
   /* Modern circular crop with subtle border */
   border-radius: 50%;
   border: 3px solid rgba(0, 167, 157, 0.3); /* Teal accent with transparency */
-  
+
   /* Smooth image rendering */
   object-fit: cover;
-  
+
   /* Elegant shadow for depth */
   box-shadow: 0 20px 60px rgba(0, 167, 157, 0.1);
-  
+
   transition: all 0.3s ease-in-out;
 }
 
 .profile-image:hover {
-  border-color: #00A79D; /* Full teal on hover */
+  border-color: #00a79d; /* Full teal on hover */
   box-shadow: 0 25px 80px rgba(0, 167, 157, 0.2);
 }
 
@@ -139,12 +140,12 @@ body {
 .name {
   font-size: 3.5rem;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 16px;
-  
+
   /* Subtle text shadow for depth */
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  
+
   /* Letter spacing for elegance */
   letter-spacing: -0.02em;
 }
@@ -152,9 +153,9 @@ body {
 .title {
   font-size: 1.5rem;
   font-weight: 400;
-  color: #00A79D; /* Teal accent color */
+  color: #00a79d; /* Teal accent color */
   margin-bottom: 32px;
-  
+
   /* Subtle animation on load */
   animation: fadeInUp 1s ease-out 0.3s both;
 }
@@ -162,10 +163,10 @@ body {
 .description {
   font-size: 1.125rem;
   font-weight: 400;
-  color: #C8C8C8; /* Improved contrast from #B8B8B8 */
+  color: #c8c8c8; /* Improved contrast from #B8B8B8 */
   max-width: 600px;
   margin: 0 auto;
-  
+
   /* Optimal line height for readability */
   line-height: 1.7;
 }
@@ -175,11 +176,11 @@ body {
   .name {
     font-size: 2.8rem;
   }
-  
+
   .title {
     font-size: 1.3rem;
   }
-  
+
   .description {
     font-size: 1rem;
   }
@@ -189,7 +190,7 @@ body {
   .name {
     font-size: 2.2rem;
   }
-  
+
   .title {
     font-size: 1.1rem;
   }
@@ -202,10 +203,10 @@ body {
 .section-heading {
   font-size: 2rem;
   font-weight: 600;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 32px;
   text-align: center;
-  
+
   /* Elegant underline effect */
   position: relative;
 }
@@ -218,13 +219,13 @@ body {
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #00A79D, #00D4C7);
+  background: linear-gradient(90deg, #00a79d, #00d4c7);
   border-radius: 2px;
 }
 
 .about-text {
   font-size: 1.125rem;
-  color: #C8C8C8; /* Improved contrast */
+  color: #c8c8c8; /* Improved contrast */
   text-align: center;
   max-width: 700px;
   margin: 0 auto;
@@ -258,23 +259,53 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 20px 32px;
-  
+
   /* Typography */
-  color: #F0F0F0; /* Improved contrast */
+  color: #f0f0f0; /* Improved contrast */
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
-  
+
   /* Layout */
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   text-align: center;
-  
+
   /* Smooth transitions for all interactive states */
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  
+
+  /* Subtle initial transform for hover effect */
+  transform: translateY(0);
+}
+
+.download-link {
+  /* Modern card-style button design */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px 32px;
+  flex-direction: column;
+
+  /* Typography */
+  color: #f0f0f0; /* Improved contrast */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  height: 360px;
+
+  /* Smooth transitions for all interactive states */
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
   /* Subtle initial transform for hover effect */
   transform: translateY(0);
 }
@@ -282,7 +313,15 @@ body {
 .social-icon {
   width: 20px;
   height: 20px;
-  color: #00A79D;
+  color: #00a79d;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.download-icon {
+  width: 80px;
+  height: 80px;
+  color: #00a79d;
   flex-shrink: 0;
   transition: all 0.3s ease;
 }
@@ -290,20 +329,51 @@ body {
 .social-link:hover {
   /* Hover effects: lift, glow, and color change */
   transform: translateY(-4px);
-  background: rgba(0, 167, 157, 0.15); /* Increased opacity for better visibility */
+  background: rgba(
+    0,
+    167,
+    157,
+    0.15
+  ); /* Increased opacity for better visibility */
   border-color: rgba(0, 167, 157, 0.5); /* Stronger border */
-  color: #00D4C7; /* Brighter teal for better contrast */
-  
+  color: #00d4c7; /* Brighter teal for better contrast */
+
   /* Enhanced shadow for lifted appearance */
   box-shadow: 0 20px 40px rgba(0, 167, 157, 0.2);
 }
 
 .social-link:hover .social-icon {
-  color: #00D4C7;
+  color: #00d4c7;
   transform: scale(1.1);
 }
 
 .social-link:active {
+  /* Subtle press effect */
+  transform: translateY(-2px);
+}
+
+.download-link:hover {
+  /* Hover effects: lift, glow, and color change */
+  transform: translateY(-4px);
+  background: rgba(
+    0,
+    167,
+    157,
+    0.15
+  ); /* Increased opacity for better visibility */
+  border-color: rgba(0, 167, 157, 0.5); /* Stronger border */
+  color: #00d4c7; /* Brighter teal for better contrast */
+
+  /* Enhanced shadow for lifted appearance */
+  box-shadow: 0 20px 40px rgba(0, 167, 157, 0.2);
+}
+
+.download-link:hover .download-icon {
+  color: #00d4c7;
+  transform: scale(1.1);
+}
+
+.download-link:active {
   /* Subtle press effect */
   transform: translateY(-2px);
 }
@@ -337,14 +407,14 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #00A79D;
+  color: #00a79d;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s, transform 0.2s;
 }
 
 .back-link:hover {
-  color: #00D4C7;
+  color: #00d4c7;
   transform: translateX(-4px);
 }
 
@@ -367,7 +437,7 @@ body {
   display: grid;
   gap: 20px;
   /* Default for mobile: 1 column */
-  grid-template-columns: 1fr; 
+  grid-template-columns: 1fr;
 }
 
 /* Tablet: 2 columns */
@@ -381,14 +451,13 @@ body {
 @media (min-width: 1024px) {
   /* Overrides max-width from .container for the grid section */
   .portfolio-section {
-    max-width: 1000px; 
+    max-width: 1000px;
     margin: 0 auto;
   }
   .portfolio-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
 
 /* Portfolio Card Styling */
 
@@ -399,19 +468,23 @@ body {
   border-radius: 16px; /* Consistent border radius */
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  
+
   /* Smooth transitions for interactive state */
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  display: flex; 
-  flex-direction: column; 
+  display: flex;
+  flex-direction: column;
   cursor: default; /* Changed from pointer since it's no longer a link */
 }
 
 .portfolio-card:hover {
   transform: translateY(-4px); /* Subtle lift on hover */
-  border-color: rgba(0, 167, 157, 0.3); 
+  border-color: rgba(0, 167, 157, 0.3);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); /* Subtle shadow */
-  background: linear-gradient(135deg, rgba(22, 249, 230, 0.3), rgba(0, 78, 73, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(22, 249, 230, 0.3),
+    rgba(0, 78, 73, 0.1)
+  );
 }
 
 .portfolio-image-container {
@@ -448,7 +521,7 @@ body {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 6px; /* Proportionally smaller */
-  color: #F0F0F0;
+  color: #f0f0f0;
   transition: all 0.3s ease;
   cursor: pointer;
   padding: 0;
@@ -457,8 +530,8 @@ body {
 
 .portfolio-link-icon:hover {
   background: rgba(0, 189, 176, 0.9);
-  border-color: #00D4C7;
-  color: #FFFFFF;
+  border-color: #00d4c7;
+  color: #ffffff;
   transition: all 0.3s ease;
   transform: scale(1.1);
 }
@@ -487,60 +560,52 @@ body {
 
 .portfolio-caption {
   padding: 16px; /* Increased padding */
-  font-size: 0.9rem; 
+  font-size: 0.9rem;
   font-weight: 600;
-  color: #F0F0F0;
+  color: #f0f0f0;
   text-align: left;
-  line-height: 1.4; 
-  
-  flex-grow: 1; 
-  display: flex; 
-  align-items: center; 
-  min-height: 4.2em; 
+  line-height: 1.4;
+
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  min-height: 4.2em;
 }
 
+/* =======================
+   LOADING SPINNER
+   ======================= */
 
-/* --- SKELETON LOADING STYLES --- */
-
-/* Base style for skeleton element */
-.skeleton-loading {
-    /* Use solid color close to background but slightly lighter for contrast */
-    background-color: #282828; 
-    border-color: rgba(255, 255, 255, 0.05) !important;
-    overflow: hidden;
-    position: relative;
-    /* Apply animation */
-    animation: pulse-bg 1.5s infinite;
+.loading-spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  z-index: 9999;
 }
 
-/* Specific styles for skeleton parts */
-.skeleton-loading .portfolio-image-container {
-    background-color: #333; /* Darker placeholder for image area */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #00a79d;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
 }
 
-/* Text placeholder lines inside the caption */
-.skeleton-loading .portfolio-caption > div {
-    height: 16px;
-    background-color: #333; /* Color of the loading lines */
-    border-radius: 4px;
-    margin-bottom: 8px;
-    width: 100%;
-}
-
-.skeleton-loading .portfolio-caption .line-short {
-    width: 60%; /* Simulate a shorter line for a title */
-}
-
-/* Override card properties for skeleton to remove interactive effects */
-.skeleton-loading {
-    cursor: default;
-    transform: none !important;
-    pointer-events: none;
-    text-decoration: none;
-}
-.skeleton-loading:hover {
-    background: #282828;
-    box-shadow: none;
+.loading-text {
+  color: #f0f0f0;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
 }
 
 /* =======================
@@ -558,16 +623,9 @@ body {
   }
 }
 
-/* Keyframe for background pulsing (skeleton effect) */
-@keyframes pulse-bg {
-  0% {
-    opacity: 0.8;
-  }
-  50% {
-    opacity: 0.4;
-  }
-  100% {
-    opacity: 0.8;
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -584,27 +642,23 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
+
   .animate-on-scroll {
     opacity: 1;
     transform: none;
   }
-  
-  /* Disable skeleton animation for reduced motion */
-  .skeleton-loading {
-      animation: none !important;
-  }
 }
 
 /* Focus styles for keyboard navigation */
-.social-link:focus-visible, .portfolio-card:focus-visible {
-  outline: 3px solid #00D4C7; /* Stronger outline */
+.social-link:focus-visible,
+.portfolio-card:focus-visible {
+  outline: 3px solid #00d4c7; /* Stronger outline */
   outline-offset: 4px;
 }
 
 /* Additional focus styles for skip link */
 a:focus-visible {
-  outline: 3px solid #00D4C7;
+  outline: 3px solid #00d4c7;
   outline-offset: 2px;
 }
 
@@ -639,7 +693,7 @@ a:focus-visible {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
-  color: #F0F0F0;
+  color: #f0f0f0;
   text-decoration: none;
   font-size: 0.9rem;
   transition: all 0.3s ease;
@@ -654,18 +708,18 @@ a:focus-visible {
 .contact-icon {
   width: 18px;
   height: 18px;
-  color: #00A79D;
+  color: #00a79d;
   flex-shrink: 0;
 }
 
 .contact-text {
   font-size: 0.875rem;
-  color: #C8C8C8;
+  color: #c8c8c8;
   line-height: 1.4;
 }
 
 .contact-item:hover .contact-text {
-  color: #F0F0F0;
+  color: #f0f0f0;
 }
 
 .footer-copy {
@@ -682,7 +736,7 @@ a:focus-visible {
     padding: 32px 24px 24px;
     margin-top: 60px;
   }
-  
+
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 12px;
@@ -694,17 +748,17 @@ a:focus-visible {
     padding: 24px 20px 20px;
     margin-top: 40px;
   }
-  
+
   .contact-item {
     padding: 10px 14px;
     font-size: 0.85rem;
   }
-  
+
   .contact-icon {
     width: 16px;
     height: 16px;
   }
-  
+
   .contact-text {
     font-size: 0.8rem;
   }
@@ -773,7 +827,7 @@ a:focus-visible {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  color: #F0F0F0;
+  color: #f0f0f0;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -796,7 +850,7 @@ a:focus-visible {
 .video-modal-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #F0F0F0;
+  color: #f0f0f0;
   margin-bottom: 16px;
   padding-right: 40px;
 }
@@ -825,19 +879,19 @@ a:focus-visible {
     width: 95%;
     padding: 20px;
   }
-  
+
   .video-modal-title {
     font-size: 1.1rem;
     margin-bottom: 12px;
   }
-  
+
   .video-modal-close {
     width: 32px;
     height: 32px;
     top: 12px;
     right: 12px;
   }
-  
+
   .video-modal-close .icon-close {
     width: 18px;
     height: 18px;
@@ -849,9 +903,51 @@ a:focus-visible {
     width: 98%;
     padding: 16px;
   }
-  
+
   .video-modal-title {
     font-size: 1rem;
     margin-bottom: 10px;
   }
+}
+
+/* =======================
+   HEADER STYLES
+   ======================= */
+.header-content {
+  width: 100vw;
+  margin: 0 auto;
+  padding: 20px 0;
+  text-align: center;
+  background: linear-gradient(
+    90deg,
+    rgb(13, 72, 68) 0%,
+    rgb(0, 107, 100) 50%,
+    rgb(13, 72, 68) 100%
+  );
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  border-bottom: solid 4px rgba(32, 171, 162, 0.4);
+  backdrop-filter: blur(20px);
+}
+
+.header-content nav.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-content nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.header-content nav a:hover {
+  color: #00a79d;
 }

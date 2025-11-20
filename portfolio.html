@@ -1,139 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!-- Primary Meta Tags -->
     <title>Tri Aji - Web Portfolio</title>
-    <meta name="title" content="Tri Aji - Web Portfolio">
-    <meta name="description" content="Complete collection of web development projects by Tri Aji.">
-    
+    <meta name="title" content="Tri Aji - Web Portfolio" />
+    <meta
+      name="description"
+      content="Complete collection of web development projects by Tri Aji."
+    />
+
     <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- CSS -->
-    <link rel="preload" href="style.css" as="style">
-    <link rel="stylesheet" href="style.css"> 
 
+    <!-- CSS -->
+    <link rel="preload" href="style.css" as="style" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="loading-spinner">
+      <div class="spinner"></div>
+      <p class="loading-text">Loading portfolio...</p>
+    </div>
+
     <main class="container">
-      
       <!-- Header Section -->
-      <header class="portfolio-page-header animate-on-scroll" aria-labelledby="portfolio-page-heading">
-        <a href="index.html" class="back-link" aria-label="Back to Home">
-            <i data-lucide="chevron-left" class="icon-sm"></i> Back to Home
-        </a>
-        <h1 id="portfolio-page-heading" class="section-heading mt-4">Portfolio of Web Development</h1>
-        
-        <!-- Search and Filter (Future feature placeholder) -->
-        <div class="filter-controls">
-            <!-- Tempat untuk fitur pencarian atau filter di masa depan -->
-        </div>
-      </header>
-      
+
       <!-- Selected Projects Section -->
-      <section class="portfolio-section" aria-labelledby="selected-projects-heading">
-        <h2 id="selected-projects-heading" class="section-heading">Selected Projects</h2>
-        <div class="portfolio-grid" id="selected-portfolio-grid">
-          <!-- Skeleton Loading for Selected Projects -->
-          <div class="portfolio-card skeleton-loading">
-            <div class="portfolio-image-container"></div>
-            <div class="portfolio-caption">
-              <div></div>
-            </div>
-          </div>
-          <div class="portfolio-card skeleton-loading">
-            <div class="portfolio-image-container"></div>
-            <div class="portfolio-caption">
-              <div></div>
-            </div>
-          </div>
-          <div class="portfolio-card skeleton-loading">
-            <div class="portfolio-image-container"></div>
-            <div class="portfolio-caption">
-              <div></div>
-            </div>
-          </div>
-        </div>
+      <section
+        class="portfolio-section"
+        aria-labelledby="selected-projects-heading"
+      >
+        <h2 id="selected-projects-heading" class="section-heading">
+          Selected Projects
+        </h2>
+        <div class="portfolio-grid" id="selected-portfolio-grid"></div>
       </section>
-      
+
       <!-- All Web Projects Section -->
       <section class="portfolio-section" aria-labelledby="all-projects-heading">
-        <h2 id="all-projects-heading" class="section-heading">All Web Projects</h2>
-        <div class="portfolio-grid" id="full-portfolio-grid">
-          <!-- Skeleton Loading for All Projects -->
-          <div class="portfolio-card skeleton-loading">
-            <div class="portfolio-image-container"></div>
-            <div class="portfolio-caption">
-              <div></div>
-            </div>
-          </div>
-          <div class="portfolio-card skeleton-loading">
-            <div class="portfolio-image-container"></div>
-            <div class="portfolio-caption">
-              <div></div>
-            </div>
-          </div>
-          <div class="portfolio-card skeleton-loading">
-            <div class="portfolio-image-container"></div>
-            <div class="portfolio-caption">
-              <div></div>
-            </div>
-          </div>
-          <div class="portfolio-card skeleton-loading">
-            <div class="portfolio-image-container"></div>
-            <div class="portfolio-caption">
-              <div></div>
-            </div>
-          </div>
-          <div class="portfolio-card skeleton-loading">
-            <div class="portfolio-image-container"></div>
-            <div class="portfolio-caption">
-              <div></div>
-            </div>
-          </div>
-          <div class="portfolio-card skeleton-loading">
-            <div class="portfolio-image-container"></div>
-            <div class="portfolio-caption">
-              <div></div>
-            </div>
-          </div>
-        </div>
+        <h2 id="all-projects-heading" class="section-heading">
+          All Web Projects
+        </h2>
+        <div class="portfolio-grid" id="full-portfolio-grid"></div>
       </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="contact-grid">
-          <a href="mailto:aji.prabandaru@gmail.com" class="contact-item">
-            <i data-lucide="mail" class="contact-icon"></i>
-            <span class="contact-text">aji.prabandaru@gmail.com</span>
-          </a>
-          <a href="tel:+6281317569036" class="contact-item">
-            <i data-lucide="phone" class="contact-icon"></i>
-            <span class="contact-text">+62 813-1756-9036</span>
-          </a>
-          <a href="https://wa.me/6281317569036" target="_blank" rel="noopener noreferrer" class="contact-item">
-            <i data-lucide="message-circle" class="contact-icon"></i>
-            <span class="contact-text">WhatsApp</span>
-          </a>
-          <div class="contact-item">
-            <i data-lucide="map-pin" class="contact-icon"></i>
-            <span class="contact-text">Tangerang Selatan, Indonesia</span>
-          </div>
-        </div>
-        <p class="footer-copy">&copy; 2025 Tri Aji Prabandaru</p>
-      </div>
-    </footer>
+    <footer class="footer"></footer>
 
-    
-    <!-- External JavaScript File (Khusus Portfolio Page) -->
-    <script src="portfolio.js" defer></script>
+    <!-- Script -->
+    <script src="./js/header.js"></script>
+    <script src="./js/footer.js"></script>
+    <script src="./js/portfolio.js" defer></script>
   </body>
 </html>
