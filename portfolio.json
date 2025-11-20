@@ -16,7 +16,7 @@
     "vercelUrl": "",
     "gitHubUrl": "",
     "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"],
-    "selected": true
+    "selected": false
   },
   {
     "id": 4,
@@ -129,7 +129,8 @@
     "imageUrl": "/assets/images/Restaurant.png",
     "vercelUrl": "https://restaurant-app-for-you.vercel.app/",
     "gitHubUrl": "",
-    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"],
+    "selected": true
   },
   {
     "id": 20,
