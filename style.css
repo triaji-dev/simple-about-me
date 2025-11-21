@@ -301,7 +301,7 @@ body {
   justify-content: center;
   gap: 12px;
   text-align: center;
-  height: 360px;
+  height: 320px;
 
   /* Smooth transitions for all interactive states */
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -744,6 +744,14 @@ a:focus-visible {
 }
 
 @media (max-width: 480px) {
+  .header-content {
+    padding: 24px 20px;
+  }
+
+  .header-content a.nav-link {
+    font-size: 0.8rem;
+  } 
+
   .footer {
     padding: 24px 20px 20px;
     margin-top: 40px;
@@ -944,10 +952,24 @@ a:focus-visible {
   color: #ffffff;
   text-decoration: none;
   margin: 0 15px;
-  font-weight: 600;
-  transition: color 0.2s ease;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .header-content nav a:hover {
-  color: #00a79d;
+  color: #00d4c7; /* Brighter teal on hover */
+  transform: translateY(-2px);
+}
+
+.header-content nav a i, 
+.header-content nav a svg {
+  width: 18px;
+  height: 18px;
+}
+
+.adjust-link {
+  transform: translateY(2px);
 }

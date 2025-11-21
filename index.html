@@ -5,18 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary Meta Tags -->
-    <title>Tri Aji - Architect & Web Developer</title>
-    <meta name="title" content="Tri Aji - Architect & Web Developer" />
+    <title>Tri Aji - Architect & Web Developer | Portfolio</title>
+    <meta name="title" content="Tri Aji - Architect & Web Developer | Portfolio" />
     <meta
       name="description"
-      content="Tri Aji is an architect, web developer and designer bridging physical spaces and digital interfaces."
+      content="Tri Aji is an architect, web developer and designer bridging physical spaces and digital interfaces. Explore my portfolio of architectural and web development projects."
     />
     <meta
       name="keywords"
-      content="Tri Aji, architect, frontend developer, web developer, UI/UX, architecture, web design"
+      content="Tri Aji, architect, frontend developer, web developer, UI/UX, architecture, web design, portfolio, digital design, spatial design"
     />
     <meta name="author" content="Tri Aji" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
     <meta name="theme-color" content="#00A79D" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://simple-about-me-omega.vercel.app/" />
+    <meta property="og:title" content="Tri Aji - Architect & Web Developer | Portfolio" />
+    <meta
+      property="og:description"
+      content="An architect who also crafts digital experiences. Bridging the gap between physical spaces and interactive interfaces."
+    />
+    <meta property="og:image" content="https://simple-about-me-omega.vercel.app/assets/profile/Profile-TriAji-Black.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Tri Aji Portfolio" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://simple-about-me-omega.vercel.app/" />
+    <meta name="twitter:title" content="Tri Aji - Architect & Web Developer" />
+    <meta
+      name="twitter:description"
+      content="An architect who also crafts digital experiences. Bridging the gap between physical spaces and interactive interfaces."
+    />
+    <meta name="twitter:image" content="https://simple-about-me-omega.vercel.app/assets/profile/Profile-TriAji-Black.png" />
+    <meta name="twitter:creator" content="@notadevright" />
+    <meta name="twitter:site" content="@notadevright" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -44,21 +72,74 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://simple-about-me-omega.vercel.app/" />
 
-    <!-- Structured Data for SEO -->
+    <!-- Structured Data for SEO (JSON-LD) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Tri Aji",
-        "jobTitle": "Architect | Web Developer",
-        "url": "https://simple-about-me-omega.vercel.app/",
-        "sameAs": [
-          "https://www.linkedin.com/in/tri-aji-prabandaru-76200742/",
-          "https://github.com/triaji-dev",
-          "https://medium.com/@notadevright",
-          "https://x.com/notadevright"
-        ],
-        "description": "An architect who also crafts digital experiences, bridging the gap between physical spaces and interactive interfaces."
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://simple-about-me-omega.vercel.app/#person",
+            "name": "Tri Aji Prabandaru",
+            "alternateName": "Tri Aji",
+            "givenName": "Tri Aji",
+            "familyName": "Prabandaru",
+            "jobTitle": ["Architect", "Web Developer", "Frontend Developer"],
+            "url": "https://simple-about-me-omega.vercel.app/",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://simple-about-me-omega.vercel.app/assets/profile/Profile-TriAji-Black.png",
+              "width": 180,
+              "height": 180
+            },
+            "sameAs": [
+              "https://www.linkedin.com/in/tri-aji-prabandaru-76200742/",
+              "https://github.com/triaji-dev",
+              "https://medium.com/@notadevright",
+              "https://x.com/notadevright"
+            ],
+            "description": "An architect who also crafts digital experiences, bridging the gap between physical spaces and interactive interfaces.",
+            "knowsAbout": [
+              "Architecture",
+              "Web Development",
+              "Frontend Development",
+              "UI/UX Design",
+              "Spatial Design",
+              "Digital Design"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://simple-about-me-omega.vercel.app/#website",
+            "url": "https://simple-about-me-omega.vercel.app/",
+            "name": "Tri Aji Portfolio",
+            "description": "Portfolio website of Tri Aji - Architect and Web Developer",
+            "publisher": {
+              "@id": "https://simple-about-me-omega.vercel.app/#person"
+            },
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://simple-about-me-omega.vercel.app/#webpage",
+            "url": "https://simple-about-me-omega.vercel.app/",
+            "name": "Tri Aji - Architect & Web Developer | Portfolio",
+            "isPartOf": {
+              "@id": "https://simple-about-me-omega.vercel.app/#website"
+            },
+            "about": {
+              "@id": "https://simple-about-me-omega.vercel.app/#person"
+            },
+            "description": "Tri Aji is an architect, web developer and designer bridging physical spaces and digital interfaces.",
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "ProfilePage",
+            "mainEntity": {
+              "@id": "https://simple-about-me-omega.vercel.app/#person"
+            }
+          }
+        ]
       }
     </script>
   </head>
