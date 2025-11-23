@@ -750,7 +750,7 @@ a:focus-visible {
 
   .header-content a.nav-link {
     font-size: 0.8rem;
-  } 
+  }
 
   .footer {
     padding: 24px 20px 20px;
@@ -924,7 +924,7 @@ a:focus-visible {
 .header-content {
   width: 100vw;
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 20px 10px;
   text-align: center;
   background: linear-gradient(
     90deg,
@@ -945,7 +945,7 @@ a:focus-visible {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 1px;
 }
 
 .header-content nav a {
@@ -964,7 +964,7 @@ a:focus-visible {
   transform: translateY(-2px);
 }
 
-.header-content nav a i, 
+.header-content nav a i,
 .header-content nav a svg {
   width: 18px;
   height: 18px;

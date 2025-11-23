@@ -8,7 +8,7 @@ const Header = () => {
             <i data-lucide="home"></i>
             <span class="adjust-link">Home</span>
           </a>
-          <a href="/#download" class="nav-link">
+          <a href="architecture.html" class="nav-link">
             <i data-lucide="building-2"></i>
             <span class="adjust-link">Architecture</span>
           </a>
