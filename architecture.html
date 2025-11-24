@@ -87,6 +87,93 @@
         font-weight: 600;
       }
 
+      /* Portfolio Page Link */
+      .portfolio-page-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 18px;
+        /* background: linear-gradient(135deg, #01554f 0%, #024743 100%); */
+        /* border: 2px solid rgba(0, 212, 199, 0.3); */
+        border-radius: 16px;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.05rem;
+        letter-spacing: 0.3px;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        /* box-shadow: 0 4px 20px rgba(0, 167, 157, 0.25), */
+          /* 0 0 0 0 rgba(0, 212, 199, 0); */
+        width: 100%;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Animated background gradient */
+      .portfolio-page-link::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .portfolio-page-link:hover::before {
+        left: 100%;
+      }
+
+      .portfolio-page-link:hover {
+        transform: scale(1.01);
+        /* box-shadow: 0 8px 32px rgba(0, 167, 157, 0.4), */
+          /* 0 0 0 4px rgba(0, 212, 199, 0.1); */
+        /* background: linear-gradient(135deg, #186862 0%, #00a79d 1%); */
+        border-color: rgba(0, 212, 199, 0.6);
+        text-decoration-line: underline;
+      }
+
+      .portfolio-page-link:active {
+        transform: translateY(-2px) scale(1.01);
+      }
+
+      .portfolio-page-link i {
+        width: 22px;
+        height: 22px;
+        transition: all 0.3s ease;
+      }
+
+      .portfolio-page-link:hover i:first-child {
+        transform: rotate(12deg) scale(1.1);
+      }
+
+      .portfolio-page-link:hover i:last-child {
+        transform: translateX(6px) scale(1.1);
+        animation: arrowBounce 0.6s ease-in-out infinite;
+      }
+
+      @keyframes arrowBounce {
+        0%,
+        100% {
+          transform: translateX(6px) scale(1.1);
+        }
+        50% {
+          transform: translateX(10px) scale(1.1);
+        }
+      }
+
+      .portfolio-page-link span {
+        position: relative;
+        z-index: 1;
+      }
+
       /* Mobile responsive */
       @media (max-width: 768px) {
         .download-btn {
@@ -102,14 +189,34 @@
         .download-btn-text {
           font-size: 0.8rem;
         }
+
+        .portfolio-page-link {
+          padding: 14px 24px;
+          font-size: 0.9rem;
+          gap: 10px;
+        }
+
+        .portfolio-page-link i {
+          width: 18px;
+          height: 18px;
+        }
       }
     </style>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="">
+    <!-- Portfolio Link -->
+    <div class="max-w-6xl mx-4 sm:mx-auto mt-20 sm:mt-24 mb-4">
+      <a href="arch_portfolio.html" class="portfolio-page-link">
+        <i data-lucide="book-open"></i>
+        <span>Go to Architectural Portfolio Page</span>
+        <i data-lucide="arrow-right"></i>
+      </a>
+    </div>
+
     <!-- CV Container - Adjusted max width for better two-column layout -->
     <div
-      class="max-w-6xl mx-4 sm:mx-auto bg-white shadow-xl rounded-xl overflow-hidden mt-20 sm:mt-24"
+      class="max-w-6xl mx-4 sm:mx-auto bg-white shadow-xl rounded-xl overflow-hidden"
       <!-- Header Section: Personal Info - Minimalist contact info -->
       <header class="header"></header>
       <div class="p-6 sm:p-8 md:p-10 border-b border-gray-200 animate-on-scroll">
@@ -135,12 +242,11 @@
               <span class="download-btn-text">CV</span>
             </a>
             <a
-              href="/assets/pdf/tri_aji_prabandaru_portfolio.pdf"
-              download
+              href="arch_portfolio.html"
               class="download-btn"
-              aria-label="Download Architectural Portfolio PDF"
+              aria-label="View Architectural Portfolio"
             >
-              <i data-lucide="file-image" class="download-btn-icon"></i>
+              <i data-lucide="book-open" class="download-btn-icon"></i>
               <span class="download-btn-text">Portfolio</span>
             </a>
           </div>

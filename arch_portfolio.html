@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Architectural Portfolio | Tri Aji Prabandaru</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- jQuery (Required for Turn.js) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+    <!-- Turn.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      /* Flipbook Container Styles */
+      .flipbook-container {
+        max-width: 1400px;
+        margin: 100px auto 40px auto;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .flipbook-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 32px;
+        text-align: center;
+      }
+
+      /* Magazine/Flipbook Wrapper */
+      #magazine-wrapper {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        padding: 40px 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      #magazine {
+        width: 100%;
+        height: 600px;
+        margin: 0 auto;
+      }
+
+      #magazine .page {
+        width: 50%;
+        height: 100%;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      #magazine .page canvas {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        /* Improve rendering quality */
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        image-rendering: pixelated;
+        /* Override for smooth rendering */
+        image-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        /* Prevent white lines */
+        backface-visibility: hidden;
+        transform: translateZ(0);
+        will-change: transform;
+      }
+
+      /* Loading Spinner */
+      .loading-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        min-height: 400px;
+        animation: fadeIn 0.5s ease-in;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Multi-ring spinner */
+      .loading-spinner {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Single rotating ring */
+      .loading-spinner::before {
+        content: '';
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        border: 4px solid transparent;
+        border-top-color: #00a79d;
+        border-right-color: #00a79d;
+        border-bottom-color: rgba(0, 167, 157, 0.3);
+        border-left-color: rgba(0, 167, 157, 0.3);
+        border-radius: 50%;
+        animation: spinOuter 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+      }
+
+      @keyframes spinOuter {
+        0% {
+          transform: rotate(0deg);
+          border-width: 4px;
+        }
+        50% {
+          border-width: 6px;
+        }
+        100% {
+          transform: rotate(360deg);
+          border-width: 4px;
+        }
+      }
+
+      @keyframes spinInner {
+        0% {
+          transform: rotate(0deg);
+          border-width: 4px;
+        }
+        50% {
+          border-width: 6px;
+        }
+        100% {
+          transform: rotate(360deg);
+          border-width: 4px;
+        }
+      }
+/* 
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.3);
+          opacity: 0.7;
+        }
+      } */
+
+      /* Loading text with animation */
+      .loading-text {
+        color: #f0f0f0;
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        animation: textPulse 2s ease-in-out infinite;
+        position: relative;
+      }
+
+      /* Animated dots */
+      .loading-text::after {
+        content: '';
+        animation: dots 1.5s steps(4, end) infinite;
+      }
+
+      @keyframes dots {
+        0%,
+        20% {
+          content: '';
+        }
+        40% {
+          content: '.';
+        }
+        60% {
+          content: '..';
+        }
+        80%,
+        100% {
+          content: '...';
+        }
+      }
+
+      @keyframes textPulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.6;
+        }
+      }
+
+      /* Progress bar */
+      .loading-progress {
+        width: 200px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .loading-progress::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 40%;
+        background: linear-gradient(90deg, #00a79d, #00d4c7, #00a79d);
+        background-size: 200% 100%;
+        animation: progressSlide 1.5s ease-in-out infinite;
+        box-shadow: 0 0 10px rgba(0, 167, 157, 0.5);
+      }
+
+      @keyframes progressSlide {
+        0% {
+          left: -40%;
+          background-position: 0% 50%;
+        }
+        100% {
+          left: 100%;
+          background-position: 100% 50%;
+        }
+      }
+
+      /* Controls */
+      .flipbook-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+
+      .control-btn {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 12px 24px;
+        color: #f0f0f0;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .control-btn:hover {
+        background: rgba(0, 167, 157, 0.15);
+        border-color: rgba(0, 167, 157, 0.5);
+        transform: translateY(-2px);
+      }
+
+      .control-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .page-info {
+        color: #c8c8c8;
+        font-size: 0.9rem;
+        padding: 12px 24px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+      }
+
+      /* Full Size PDF Button */
+      .fullsize-btn-container {
+        margin-top: 32px;
+        text-align: center;
+      }
+
+      .fullsize-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 32px;
+        background: linear-gradient(135deg, #00a79d 0%, #00d4c7 100%);
+        border: 2px solid rgba(0, 212, 199, 0.3);
+        border-radius: 12px;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        box-shadow: 0 4px 16px rgba(0, 167, 157, 0.3);
+      }
+
+      .fullsize-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(0, 167, 157, 0.5);
+        background: linear-gradient(135deg, #00d4c7 0%, #00a79d 100%);
+        border-color: rgba(0, 212, 199, 0.6);
+      }
+
+      .fullsize-btn:active {
+        transform: translateY(-1px);
+      }
+
+      .fullsize-btn i {
+        width: 20px;
+        height: 20px;
+      }
+
+      .fullsize-btn:hover i:last-child {
+        transform: translate(3px, -3px);
+      }
+
+      /* Back Link */
+      .back-link-container {
+        margin-bottom: 24px;
+        text-align: left;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 18px;
+        /* background: linear-gradient(135deg, #01554f 0%, #024743 100%); */
+        /* border: 2px solid rgba(0, 212, 199, 0.3); */
+        border-radius: 16px;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.05rem;
+        letter-spacing: 0.3px;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        /* box-shadow: 0 4px 20px rgba(0, 167, 157, 0.25), */
+          /* 0 0 0 0 rgba(0, 212, 199, 0); */
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Animated background gradient */
+      .back-link::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .back-link:hover::before {
+        left: 100%;
+      }
+
+      .back-link:hover {
+        transform: scale(1.01);
+        /* box-shadow: 0 8px 32px rgba(0, 167, 157, 0.4), */
+          /* 0 0 0 4px rgba(0, 212, 199, 0.1); */
+        /* background: linear-gradient(135deg, #186862 0%, #00a79d 100%); */
+        /* border-color: rgba(0, 212, 199, 0.6); */
+      }
+
+      .back-link:active {
+        transform: scale(1.01);
+      }
+
+      .back-link i {
+        width: 22px;
+        height: 22px;
+        transition: all 0.3s ease;
+      }
+
+      .back-link:hover i:first-child {
+        transform: translateX(-6px) scale(1.1);
+        animation: arrowBounceLeft 0.6s ease-in-out infinite;
+      }
+
+      @keyframes arrowBounceLeft {
+        0%,
+        100% {
+          transform: translateX(-6px) scale(1.1);
+        }
+        50% {
+          transform: translateX(-10px) scale(1.1);
+        }
+      }
+
+      .back-link span {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        #magazine {
+          height: 500px;
+        }
+
+        .flipbook-title {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .flipbook-container {
+          margin-top: 20px;
+          padding: 10px;
+        }
+
+        #magazine {
+          height: 400px;
+        }
+
+        #magazine-wrapper {
+          padding: 20px 10px;
+        }
+
+        .flipbook-title {
+          font-size: 1.5rem;
+          margin-bottom: 20px;
+        }
+
+        .control-btn {
+          padding: 10px 16px;
+          font-size: 0.875rem;
+        }
+
+        .back-link-container {
+          margin-bottom: 16px;
+        }
+
+        .back-link {
+          padding: 10px 16px;
+          font-size: 0.9rem;
+          gap: 10px;
+        }
+
+        .back-link i {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        #magazine {
+          height: 300px;
+        }
+
+        .flipbook-controls {
+          gap: 10px;
+        }
+
+        .fullsize-btn {
+          padding: 12px 24px;
+          font-size: 0.9rem;
+          gap: 10px;
+        }
+
+        .fullsize-btn i {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      /* Error Message */
+      .error-message {
+        color: #ff6b6b;
+        background: rgba(255, 107, 107, 0.1);
+        border: 1px solid rgba(255, 107, 107, 0.3);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 600px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header"></header>
+
+    <!-- Main Content -->
+    <div class="flipbook-container">
+      <!-- Back Link -->
+      <div class="back-link-container">
+        <a href="architecture.html" class="back-link">
+          <i data-lucide="arrow-left"></i>
+          <span>Back to CV</span>
+        </a>
+      </div>
+
+      <h1 class="flipbook-title">Architectural Portfolio</h1>
+
+      <!-- Magazine Wrapper -->
+      <div id="magazine-wrapper">
+        <!-- Loading State -->
+        <div id="loading" class="loading-container">
+          <div class="loading-spinner"></div>
+          <p class="loading-text">Loading portfolio</p>
+          <div class="loading-progress"></div>
+        </div>
+
+        <!-- Magazine/Flipbook -->
+        <div id="magazine" style="display: none"></div>
+
+        <!-- Error Message (Hidden by default) -->
+        <div id="error-message" class="error-message" style="display: none">
+          <p>Failed to load the portfolio PDF. Please try again later.</p>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="flipbook-controls" id="controls" style="display: none">
+        <button class="control-btn" id="prev-btn">
+          <i data-lucide="chevron-left"></i>
+          Previous
+        </button>
+        <div class="page-info" id="page-info">Page 1 of 1</div>
+        <button class="control-btn" id="next-btn">
+          Next
+          <i data-lucide="chevron-right"></i>
+        </button>
+      </div>
+
+      <!-- Full Size PDF Button -->
+      <div class="fullsize-btn-container" id="fullsize-container" style="display: none">
+        <a
+          href="/assets/pdf/tri_aji_prabandaru_portfolio.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="fullsize-btn"
+        >
+          <i data-lucide="maximize-2"></i>
+          <span>View Full Size PDF</span>
+          <i data-lucide="external-link"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer"></footer>
+
+    <!-- Scripts -->
+    <script src="./js/header.js"></script>
+    <script src="./js/footer.js"></script>
+
+    <script>
+      // PDF.js worker configuration
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+      // Configuration
+      const PDF_URL = '/assets/pdf/tri_aji_prabandaru_portfolio.pdf';
+      let pdfDoc = null;
+      let totalPages = 0;
+
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      // Load and render PDF
+      async function loadPDF() {
+        try {
+          // Load PDF document
+          pdfDoc = await pdfjsLib.getDocument(PDF_URL).promise;
+          totalPages = pdfDoc.numPages;
+
+          console.log(`PDF loaded: ${totalPages} pages`);
+
+          // Render all pages
+          const magazine = document.getElementById('magazine');
+          magazine.innerHTML = ''; // Clear existing content
+
+          for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+            const page = await pdfDoc.getPage(pageNum);
+            
+            // Increase scale for better quality (2.0 instead of 1.5)
+            const viewport = page.getViewport({ scale: 2.0 });
+
+            // Create page container
+            const pageDiv = document.createElement('div');
+            pageDiv.className = 'page';
+            pageDiv.setAttribute('data-page', pageNum);
+
+            // Create canvas with higher resolution
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d', { 
+              alpha: false,
+              willReadFrequently: false 
+            });
+            
+            // Set canvas size to viewport size
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            // Enable image smoothing for better quality
+            context.imageSmoothingEnabled = true;
+            context.imageSmoothingQuality = 'high';
+
+            // Render PDF page to canvas
+            await page.render({
+              canvasContext: context,
+              viewport: viewport,
+              intent: 'display',
+              enableWebGL: true,
+              renderInteractiveForms: false,
+            }).promise;
+
+            pageDiv.appendChild(canvas);
+            magazine.appendChild(pageDiv);
+          }
+
+          // Initialize Turn.js flipbook
+          initFlipbook();
+
+          // Hide loading, show magazine and controls
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('magazine').style.display = 'block';
+          document.getElementById('controls').style.display = 'flex';
+          document.getElementById('fullsize-container').style.display = 'block';
+
+          // Re-initialize Lucide icons for controls
+          if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+          }
+        } catch (error) {
+          console.error('Error loading PDF:', error);
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('error-message').style.display = 'block';
+        }
+      }
+
+      // Initialize Turn.js flipbook
+      function initFlipbook() {
+        const $magazine = $('#magazine');
+
+        $magazine.turn({
+          width: 1200,
+          height: 600,
+          autoCenter: true,
+          elevation: 50,
+          gradients: true,
+          acceleration: true,
+          duration: 1000,
+        });
+
+        // Update page info on turn
+        $magazine.bind('turned', function (event, page, view) {
+          updatePageInfo(page);
+        });
+
+        // Initial page info
+        updatePageInfo(1);
+
+        // Setup control buttons
+        setupControls($magazine);
+
+        // Responsive sizing
+        $(window).resize(function () {
+          resizeFlipbook($magazine);
+        });
+
+        resizeFlipbook($magazine);
+      }
+
+      // Resize flipbook for responsive design
+      function resizeFlipbook($magazine) {
+        const containerWidth = $('#magazine-wrapper').width() - 40;
+        const maxWidth = 1200;
+        const width = Math.min(containerWidth, maxWidth);
+        const height = width * 0.5; // Maintain aspect ratio
+
+        $magazine.turn('size', width, height);
+      }
+
+      // Update page information
+      function updatePageInfo(currentPage) {
+        const pageInfo = document.getElementById('page-info');
+        pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+
+        // Update button states
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        prevBtn.disabled = currentPage === 1;
+        nextBtn.disabled = currentPage === totalPages;
+      }
+
+      // Setup control buttons
+      function setupControls($magazine) {
+        document.getElementById('prev-btn').addEventListener('click', () => {
+          $magazine.turn('previous');
+        });
+
+        document.getElementById('next-btn').addEventListener('click', () => {
+          $magazine.turn('next');
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') {
+            $magazine.turn('previous');
+          } else if (e.key === 'ArrowRight') {
+            $magazine.turn('next');
+          }
+        });
+      }
+
+      // Load PDF when page is ready
+      document.addEventListener('DOMContentLoaded', () => {
+        loadPDF();
+      });
+    </script>
+  </body>
+</html>
