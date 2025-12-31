@@ -1076,18 +1076,37 @@
             name: document.getElementById('userName').value.trim(),
             company: document.getElementById('userCompany').value.trim(),
             email: document.getElementById('userEmail').value.trim(),
-            downloadedAt: new Date().toISOString()
+            downloadType: 'cv',
+            pageSource: 'architecture.html'
           };
 
-          // Log the data (can be sent to backend/analytics)
+          // Log the data
           console.log('CV Download Request:', formData);
 
-          // Optional: Store in localStorage for tracking
+          // Send to Google Sheets
+          const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxFjRTk0hvPlvCr44WqT0PkliK-Fx22vz3hFVZQBea1Q8vNeVbYl4qXivPKEKVWt7zSoQ/exec';
+          
+          fetch(GOOGLE_SHEET_URL, {
+            method: 'POST',
+            mode: 'no-cors', // Required for Google Apps Script
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+          })
+          .then(() => {
+            console.log('Data sent to Google Sheets successfully');
+          })
+          .catch((error) => {
+            console.error('Error sending to Google Sheets:', error);
+          });
+
+          // Optional: Store in localStorage for backup tracking
           const downloads = JSON.parse(localStorage.getItem('cvDownloads') || '[]');
-          downloads.push(formData);
+          downloads.push({ ...formData, downloadedAt: new Date().toISOString() });
           localStorage.setItem('cvDownloads', JSON.stringify(downloads));
 
-          // Trigger download
+          // Trigger download immediately (don't wait for API)
           const link = document.createElement('a');
           link.href = pdfUrl;
           link.download = 'Tri_Aji_Prabandaru_CV.pdf';
@@ -1098,7 +1117,7 @@
           // Close modal after download starts
           closeModal();
 
-          // Show success feedback (optional)
+          // Show success feedback
           console.log('Download started for:', formData.name);
         });
       });
