@@ -203,7 +203,7 @@
         background: #ffffff;
         border-radius: 20px;
         width: 100%;
-        max-width: 420px;
+        max-width: 480px;
         position: relative;
         transform: scale(0.9) translateY(20px);
         transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -312,14 +312,77 @@
         border-color: #10b981;
       }
 
+      .download-options-label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #374151;
+        margin-bottom: 12px;
+        display: block;
+      }
+
+      .download-options {
+        display: flex;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .btn-download-option {
+        flex: 1;
+        padding: 16px 20px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        font-family: 'Inter', sans-serif;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 2px solid #e5e7eb;
+        background: #f9fafb;
+        color: #374151;
+      }
+
+      .btn-download-option:hover {
+        border-color: #00a79d;
+        background: rgba(0, 167, 157, 0.05);
+        color: #00a79d;
+        transform: translateY(-2px);
+      }
+
+      .btn-download-option:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .btn-download-option.active {
+        border-color: #00a79d;
+        background: linear-gradient(135deg, #00a79d 0%, #00786f 100%);
+        color: #ffffff;
+        box-shadow: 0 4px 14px rgba(0, 167, 157, 0.3);
+      }
+
+      .btn-download-option svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .btn-download-option span {
+        font-size: 0.85rem;
+      }
+
       .modal-actions {
         display: flex;
         gap: 12px;
-        margin-top: 28px;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #e5e7eb;
       }
 
-      .btn-cancel,
-      .btn-download {
+      .btn-cancel {
         flex: 1;
         padding: 14px 20px;
         font-size: 0.95rem;
@@ -328,13 +391,6 @@
         border-radius: 12px;
         cursor: pointer;
         transition: all 0.2s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-      }
-
-      .btn-cancel {
         background: #f3f4f6;
         border: 2px solid #e5e7eb;
         color: #6b7280;
@@ -343,27 +399,6 @@
       .btn-cancel:hover {
         background: #e5e7eb;
         color: #374151;
-      }
-
-      .btn-download {
-        background: linear-gradient(135deg, #00a79d 0%, #00786f 100%);
-        border: none;
-        color: #ffffff;
-        box-shadow: 0 4px 14px rgba(0, 167, 157, 0.3);
-      }
-
-      .btn-download:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0, 167, 157, 0.4);
-      }
-
-      .btn-download:active {
-        transform: translateY(0);
-      }
-
-      .btn-icon {
-        width: 18px;
-        height: 18px;
       }
 
       .modal-close {
@@ -440,16 +475,16 @@
             <p class="text-xl sm:text-2xl font-light text-gray-700">Architect</p>
           </div>
 
-          <!-- Download Buttons -->
+          <!-- Download Button (Opens Modal) -->
           <div class="flex flex-col sm:flex-row gap-3 md:mt-2">
             <button
               type="button"
               class="download-btn"
               id="openDownloadModal"
-              aria-label="Download Architectural CV PDF"
+              aria-label="Download CV or Portfolio"
             >
-              <i data-lucide="file-down" class="download-btn-icon"></i>
-              <span class="download-btn-text">CV</span>
+              <i data-lucide="download" class="download-btn-icon"></i>
+              <span class="download-btn-text">Download</span>
             </button>
           </div>
         </div>
@@ -942,10 +977,10 @@
         <!-- Modal Header -->
         <div class="modal-header">
           <div class="modal-icon">
-            <i data-lucide="file-text"></i>
+            <i data-lucide="folder-down"></i>
           </div>
-          <h3 class="modal-title">Download CV</h3>
-          <p class="modal-subtitle">Please fill in your details to download</p>
+          <h3 class="modal-title">Download Files</h3>
+          <p class="modal-subtitle">Fill in your details, then choose what to download</p>
         </div>
 
         <!-- Modal Form -->
@@ -995,14 +1030,25 @@
             />
           </div>
 
+          <!-- Download Options -->
+          <div class="form-group">
+            <span class="download-options-label">Choose file to download:</span>
+            <div class="download-options">
+              <button type="submit" class="btn-download-option" id="btnDownloadCV" data-type="cv">
+                <i data-lucide="file-text"></i>
+                <span>Download CV</span>
+              </button>
+              <button type="submit" class="btn-download-option" id="btnDownloadPortfolio" data-type="portfolio">
+                <i data-lucide="images"></i>
+                <span>Download Portfolio</span>
+              </button>
+            </div>
+          </div>
+
           <!-- Modal Actions -->
           <div class="modal-actions">
             <button type="button" id="closeModal" class="btn-cancel">
               Cancel
-            </button>
-            <button type="submit" class="btn-download">
-              <i data-lucide="download" class="btn-icon"></i>
-              Download CV
             </button>
           </div>
         </form>
@@ -1013,6 +1059,7 @@
         </button>
       </div>
     </div>
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="./js/header.js"></script>
@@ -1027,7 +1074,21 @@
         const closeBtn = document.getElementById('closeModal');
         const closeX = document.getElementById('closeModalX');
         const form = document.getElementById('downloadForm');
-        const pdfUrl = '/assets/pdf/tri_aji_prabandaru_cv.pdf';
+        const btnCV = document.getElementById('btnDownloadCV');
+        const btnPortfolio = document.getElementById('btnDownloadPortfolio');
+        
+        const files = {
+          cv: {
+            url: '/assets/pdf/tri_aji_prabandaru_cv.pdf',
+            filename: 'Tri_Aji_Prabandaru_CV.pdf'
+          },
+          portfolio: {
+            url: '/assets/pdf/tri_aji_prabandaru_portfolio.pdf',
+            filename: 'Tri_Aji_Prabandaru_Portfolio.pdf'
+          }
+        };
+
+        let selectedType = null;
 
         // Open modal
         openBtn.addEventListener('click', function() {
@@ -1048,6 +1109,7 @@
           modal.classList.remove('active');
           document.body.style.overflow = '';
           form.reset();
+          selectedType = null;
         }
 
         // Close modal events
@@ -1068,29 +1130,53 @@
           }
         });
 
+        // Handle download button clicks
+        function handleDownload(type) {
+          selectedType = type;
+        }
+
+        btnCV.addEventListener('click', function(e) {
+          handleDownload('cv');
+        });
+
+        btnPortfolio.addEventListener('click', function(e) {
+          handleDownload('portfolio');
+        });
+
         // Form submission
         form.addEventListener('submit', function(e) {
           e.preventDefault();
+
+          // Determine which button was clicked
+          const clickedButton = e.submitter;
+          const downloadType = clickedButton ? clickedButton.getAttribute('data-type') : selectedType;
+
+          if (!downloadType) {
+            alert('Please select a file to download');
+            return;
+          }
 
           const formData = {
             name: document.getElementById('userName').value.trim(),
             company: document.getElementById('userCompany').value.trim(),
             email: document.getElementById('userEmail').value.trim(),
+            downloadType: downloadType,
             downloadedAt: new Date().toISOString()
           };
 
           // Log the data (can be sent to backend/analytics)
-          console.log('CV Download Request:', formData);
+          console.log('Download Request:', formData);
 
           // Optional: Store in localStorage for tracking
-          const downloads = JSON.parse(localStorage.getItem('cvDownloads') || '[]');
+          const downloads = JSON.parse(localStorage.getItem('portfolioDownloads') || '[]');
           downloads.push(formData);
-          localStorage.setItem('cvDownloads', JSON.stringify(downloads));
+          localStorage.setItem('portfolioDownloads', JSON.stringify(downloads));
 
           // Trigger download
+          const file = files[downloadType];
           const link = document.createElement('a');
-          link.href = pdfUrl;
-          link.download = 'Tri_Aji_Prabandaru_CV.pdf';
+          link.href = file.url;
+          link.download = file.filename;
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
@@ -1098,8 +1184,8 @@
           // Close modal after download starts
           closeModal();
 
-          // Show success feedback (optional)
-          console.log('Download started for:', formData.name);
+          // Show success feedback
+          console.log('Download started:', file.filename, 'for:', formData.name);
         });
       });
     </script>
