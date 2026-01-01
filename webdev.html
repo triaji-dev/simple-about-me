@@ -26,13 +26,17 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Loading Spinner -->
+    <!-- Header (Outside loading blur) -->
+    <header class="header"></header>
+
+    <!-- Loading Spinner (transparent overlay) -->
     <div id="loading-spinner" class="loading-spinner">
       <div class="spinner"></div>
       <p class="loading-text">Loading portfolio...</p>
     </div>
 
-    <main class="container">
+    <!-- Content wrapper that gets blurred during loading -->
+    <main class="container page-content" id="page-content">
       <!-- Header Section -->
 
       <!-- Selected Projects Section -->

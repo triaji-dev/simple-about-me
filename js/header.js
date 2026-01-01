@@ -12,7 +12,7 @@ const Header = () => {
             <i data-lucide="building-2"></i>
             <span class="adjust-link">Architecture</span>
           </a>
-          <a href="portfolio.html" class="nav-link">
+          <a href="webdev.html" class="nav-link">
             <i data-lucide="code-2"></i>
             <span class="adjust-link">Web Dev</span>
           </a>

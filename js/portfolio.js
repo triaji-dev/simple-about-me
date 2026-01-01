@@ -47,10 +47,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     'selected-portfolio-grid'
   );
   const loadingSpinner = document.getElementById('loading-spinner');
+  const pageContent = document.getElementById('page-content');
 
-  // Show loading spinner
+  // Show loading spinner and blur content
   if (loadingSpinner) {
     loadingSpinner.style.display = 'flex';
+  }
+  if (pageContent) {
+    pageContent.classList.add('is-loading');
   }
 
   // Track loading start time
@@ -167,9 +171,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Wait for remaining time to ensure minimum loading display
   await new Promise(resolve => setTimeout(resolve, remainingTime));
 
-  // Hide loading spinner after all data is loaded
+  // Hide loading spinner and remove blur after all data is loaded
   if (loadingSpinner) {
     loadingSpinner.style.display = 'none';
+  }
+  if (pageContent) {
+    pageContent.classList.remove('is-loading');
   }
 });
 

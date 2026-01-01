@@ -19,10 +19,12 @@ body {
   /* Typography: Inter font for modern, clean look */
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     sans-serif;
-  color: #f0f0f0; /* Improved contrast from #EAEAEA */
+  color: #f0f0f0;
   line-height: 1.6;
 
-  /* Remove default margins and ensure full viewport coverage */
+  /* Flexbox layout for viewport fit */
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -32,14 +34,16 @@ body {
    ======================= */
 
 .container {
-  /* Single-column responsive layout with generous spacing */
+  /* Single-column responsive layout */
   max-width: 1200px;
-  margin: 60px auto 20px auto;
-  padding: 20px 20px;
+  margin: 0 auto;
+  padding: 60px 20px 20px 20px;
 
   /* Flexbox for vertical spacing control */
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  flex: 1;
 }
 
 /* Mobile responsive adjustments */
@@ -104,8 +108,8 @@ body {
 }
 
 .profile-image {
-  width: 180px;
-  height: 180px;
+  width: 120px;
+  height: 120px;
 
   /* Modern circular crop with subtle border */
   border-radius: 50%;
@@ -138,10 +142,10 @@ body {
    ======================= */
 
 .name {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 
   /* Subtle text shadow for depth */
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -151,24 +155,28 @@ body {
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: 400;
   color: #00a79d; /* Teal accent color */
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 
   /* Subtle animation on load */
   animation: fadeInUp 1s ease-out 0.3s both;
 }
 
 .description {
-  font-size: 1.125rem;
+  font-size: 0.95rem;
   font-weight: 400;
-  color: #c8c8c8; /* Improved contrast from #B8B8B8 */
-  max-width: 600px;
+  color: #c8c8c8;
+  max-width: 500px;
   margin: 0 auto;
 
   /* Optimal line height for readability */
-  line-height: 1.7;
+  line-height: 1.6;
+}
+
+.description-sub {
+  color: rgb(73, 73, 73); 
 }
 
 /* Mobile typography adjustments */
@@ -201,10 +209,10 @@ body {
    ======================= */
 
 .section-heading {
-  font-size: 2rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #ffffff;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
   text-align: center;
 
   /* Elegant underline effect */
@@ -246,7 +254,6 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  max-width: 600px;
   margin: 0 auto;
   list-style: none; /* Remove default list bullets */
   padding: 0;
@@ -387,7 +394,7 @@ body {
 }
 
 /* =======================
-   PORTFOLIO PAGE STYLES (Used by portfolio.html)
+   PORTFOLIO PAGE STYLES (Used by webdev.html)
    ======================= */
 
 .portfolio-page-header {
@@ -582,14 +589,13 @@ body {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(26, 26, 26, 0.8);
-  backdrop-filter: blur(10px);
+  background: rgba(26, 26, 26, 0.7);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
-  z-index: 9999;
+  z-index: 999; /* Below header (1000) but above content */
 }
 
 .spinner {
@@ -606,6 +612,16 @@ body {
   font-size: 1rem;
   font-weight: 500;
   margin: 0;
+}
+
+/* Content blur effect during loading */
+.page-content {
+  transition: filter 0.3s ease;
+}
+
+.page-content.is-loading {
+  filter: blur(8px);
+  pointer-events: none;
 }
 
 /* =======================
@@ -663,71 +679,78 @@ a:focus-visible {
 }
 
 /* =======================
-   FOOTER
+   FOOTER (Minimalist)
    ======================= */
 
 .footer {
-  background: rgba(0, 0, 0, 0.2);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 40px 40px 32px;
-  margin-top: 80px;
+  background: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 10px 20px;
+  margin-top: auto; /* Push footer to bottom */
 }
 
 .footer-content {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
+  text-align: center;
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.contact-item {
+.footer-links {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  color: #f0f0f0;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
 }
 
-.contact-item:hover {
-  background: rgba(0, 167, 157, 0.08);
-  border-color: rgba(0, 167, 157, 0.2);
+.footer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: #888888;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #00a79d;
+  background: rgba(0, 167, 157, 0.1);
   transform: translateY(-2px);
 }
 
-.contact-icon {
+.footer-icon {
   width: 18px;
   height: 18px;
-  color: #00a79d;
-  flex-shrink: 0;
 }
 
-.contact-text {
-  font-size: 0.875rem;
-  color: #c8c8c8;
-  line-height: 1.4;
+.footer-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.contact-item:hover .contact-text {
-  color: #f0f0f0;
+.footer-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #666666;
+  font-size: 0.8rem;
+}
+
+.footer-location .footer-icon {
+  width: 14px;
+  height: 14px;
+  color: #555555;
 }
 
 .footer-copy {
-  font-size: 0.8rem;
-  color: #666666;
-  text-align: center;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.75rem;
+  color: #555555;
+  margin: 0;
 }
 
 /* Mobile responsive footer */
